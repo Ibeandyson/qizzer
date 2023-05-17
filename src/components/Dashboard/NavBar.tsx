@@ -1,3 +1,3 @@
-export default function NavBar() {
+const NavBar = () => {
   return <div>NavBar</div>;
-}
+};

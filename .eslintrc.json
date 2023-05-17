@@ -2,8 +2,8 @@
   "extends": ["next/core-web-vitals", "airbnb", "airbnb-typescript"],
   "plugins": [],
   "rules": {
-    // "quotes": "off",
-    // "@typescript-eslint/quotes": "off",
+    "quotes": "off",
+    "@typescript-eslint/quotes": "off",
     "react/react-in-jsx-scope": "off",
     "lines-around-directive": "off",
     "@typescript-eslint/lines-around-directive": "off",
