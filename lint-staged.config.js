@@ -1,4 +1,3 @@
-export default {
-  "*.{js,jsx,ts,tsx}": ["eslint --fix", "yarn lint"],
-  "*.json": ["prettier --write"],
+module.exports = {
+  "*.{js,jsx,ts,tsx}": ["yarn lint"],
 };
