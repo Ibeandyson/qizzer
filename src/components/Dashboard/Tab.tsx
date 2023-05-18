@@ -27,7 +27,14 @@ function Tab({ label, path }: Props) {
       cursor="pointer"
     >
       <DashboardIcon color={pathname === path ? "#4E3391" : "#7A7A7A"} />
-      <p className="text-[14px] font-normal text-primary">{label}</p>
+      <chakra.p
+        fontSize="14px"
+        fontWeight={400}
+        color="#220075"
+        className="text-[14px] font-normal text-primary"
+      >
+        {label}
+      </chakra.p>
     </chakra.div>
   );
 }
