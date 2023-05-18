@@ -1,3 +1,6 @@
+"use client";
+
+import { chakra } from "@chakra-ui/react";
 import { ReactNode } from "react";
 import SideBar from "./SideBar";
 import NavBar from "./NavBar";
@@ -10,10 +13,10 @@ function Layout({ children }: Props) {
   return (
     <main>
       <SideBar />
-      <div className="pl-[300px]">
+      <chakra.div pl="300px">
         <NavBar />
-        <div className="p-[20px]">{children}</div>
-      </div>
+        <chakra.div p="20px">{children}</chakra.div>
+      </chakra.div>
     </main>
   );
 }
