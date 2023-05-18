@@ -1,7 +1,6 @@
-import SideBar from "@/components/Dashboard/SideBar";
 import "../globals.css";
 import { Inter } from "next/font/google";
-import NavBar from "@/components/Dashboard/NavBar";
+import Layout from "@/components/Dashboard/Layout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,11 +17,7 @@ export default function DashboardLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <SideBar />
-        <div className="pl-[300px]">
-          <NavBar />
-          <main>{children}</main>
-        </div>
+        <Layout>{children}</Layout>
       </body>
     </html>
   );
