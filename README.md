@@ -36,3 +36,12 @@ To learn more about Next.js, take a look at the following resources:
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
 ## Repo Management
+
+- Pull and Create a new branch from `dev` for the new `feature` you are working on.
+- Use `snake_case` for the Naming of the branch as follows `<Page Name>_<Feature Name>_<Any other Info you think might help>`. Example: `dashbaord_navbar`
+- State on the commit comment the Status of the Task Example `Update: Nav Bar`, or `New: Nav Bar` or `Fix: Error on Nav Bar`
+- Push on the branch you created and make a PR to dev
+- The branch will be deleted after being Reviewd and Merged
+- If you have pending task you to push on a branch, state it on the PR comment so i wont delete the branch
+
+### Note : ` Make a PR to dev only`
