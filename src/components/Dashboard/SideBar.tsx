@@ -5,6 +5,7 @@ function SideBar() {
   return (
     <chakra.div
       pos={{ base: "fixed" }}
+      display={{ base: "none", lg: "block" }}
       top="0px"
       left="0px"
       bottom="0px"

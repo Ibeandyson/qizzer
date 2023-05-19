@@ -11,13 +11,13 @@ type Props = {
 
 function Layout({ children }: Props) {
   return (
-    <main>
+    <chakra.main>
       <SideBar />
-      <chakra.div pl="300px">
+      <chakra.div pl={{ lg: "300px" }}>
         <NavBar />
         <chakra.div p="20px">{children}</chakra.div>
       </chakra.div>
-    </main>
+    </chakra.main>
   );
 }
 
