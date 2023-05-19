@@ -1,10 +1,12 @@
 ## Tech Stack Used
 
-### `Next Js`
+### `Next Js (13.4)`
 
 ### `TypeScript`
 
 ### `Chakra UI`
+
+### `Yarn (Package Manager)`
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
@@ -13,7 +15,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 First, Install the packages:
 
 ```bash
-yarn dev
+yarn
 ```
 
 Second, run the development server:

@@ -5,9 +5,9 @@ function SideBar() {
   return (
     <chakra.div
       pos={{ base: "fixed" }}
-      top={0}
-      left={0}
-      bottom={0}
+      top="0px"
+      left="0px"
+      bottom="0px"
       w="282px"
       boxShadow="0px 16px 16px rgba(0, 0, 0, 0.08)"
       py="30px"
