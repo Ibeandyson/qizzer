@@ -1,5 +1,6 @@
 "use client";
-import React from "react";
+
+import { chakra } from "@chakra-ui/react";
 import { usePathname, useRouter } from "next/navigation";
 import DashboardIcon from "../SVG-Icons/DashboardIcon";
 
@@ -13,13 +14,28 @@ function Tab({ label, path }: Props) {
   const pathname = usePathname();
 
   return (
-    <div
+    <chakra.div
       onClick={() => router.push(path)}
-      className="w-full h-[38px] bg-[#E9E6F1] rounded-[4px] flex items-center gap-[10px] px-[20px] cursor-pointer"
+      w="full"
+      h="38px"
+      bg="#E9E6F1"
+      borderRadius="4px"
+      display="flex"
+      alignItems="center"
+      gap="10px"
+      px="20px"
+      cursor="pointer"
     >
-      <DashboardIcon color={pathname === path ? "#4E3391" : "#FFF"} />
-      <p className="text-[14px] font-normal text-primary">{label}</p>
-    </div>
+      <DashboardIcon color={pathname === path ? "#4E3391" : "#7A7A7A"} />
+      <chakra.p
+        fontSize="14px"
+        fontWeight={400}
+        color="#220075"
+        className="text-[14px] font-normal text-primary"
+      >
+        {label}
+      </chakra.p>
+    </chakra.div>
   );
 }
 

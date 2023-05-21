@@ -1,19 +1,30 @@
+import { chakra } from "@chakra-ui/react";
 import Tab from "./Tab";
 
 function SideBar() {
   return (
-    <div className="fixed top-0 left-0 bottom-0 w-[282px] shadow-sidenav py-[30px] px-[20px]">
-      <div>
-        <img className="mx-auto" src="/imgs/logo-large.svg" alt="logo" />
-      </div>
-      <div className="w-full h-0 border-[1px] border-[#D7D7D7] mt-[20px]" />
-      <div className="pt-[40px] px-[5px]">
-        <p className="text-[12px] font-normal text-[#6C6C6C]">MENU</p>
-        <div>
+    <chakra.div
+      pos={{ base: "fixed" }}
+      display={{ base: "none", lg: "block" }}
+      top="0px"
+      left="0px"
+      bottom="0px"
+      w="282px"
+      boxShadow="0px 16px 16px rgba(0, 0, 0, 0.08)"
+      py="30px"
+      px="20px"
+    >
+      <chakra.img mx="auto" src="/imgs/logo-large.svg" alt="logo" />
+      <chakra.div w="full" h="0px" border="1px solid #D7D7D7" mt="20px" />
+      <chakra.div pt="40px" px="5px">
+        <chakra.p fontSize="12px" fontWeight={400} color="#6C6C6C">
+          MENU
+        </chakra.p>
+        <chakra.div>
           <Tab label="Dashboard" path="/dashboard" />
-        </div>
-      </div>
-    </div>
+        </chakra.div>
+      </chakra.div>
+    </chakra.div>
   );
 }
 

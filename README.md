@@ -1,22 +1,30 @@
+## Tech Stack Used
+
+### `Next Js (13.4)`
+
+### `TypeScript`
+
+### `Chakra UI`
+
+### `Yarn (Package Manager)`
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
-First, run the development server:
+First, Install the packages:
 
 ```bash
-npm run dev
-# or
+yarn
+```
+
+Second, run the development server:
+
+```bash
 yarn dev
-# or
-pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
 ## Learn More
 
@@ -27,8 +35,13 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Repo Management
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Pull and Create a new branch from `dev` for the new `feature` you are working on.
+- Use `snake_case` for the Naming of the branch as follows `<Page Name>_<Feature Name>_<Any other Info you think might help>`. Example: `dashbaord_navbar`
+- State on the commit comment the Status of the Task Example `Update: Nav Bar`, or `New: Nav Bar` or `Fix: Error on Nav Bar`
+- Push on the branch you created and make a PR to dev
+- The branch will be deleted after being Reviewd and Merged
+- If you have pending task you to push on a branch, state it on the PR comment so i wont delete the branch
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Note : ` Make a PR to dev only`

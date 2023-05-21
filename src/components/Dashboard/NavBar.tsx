@@ -1,3 +1,9 @@
+import { chakra } from "@chakra-ui/react";
+
 export default function NavBar() {
-  return <div>NavBar</div>;
+  return (
+    <chakra.div h="137px">
+      <chakra.p>NAV</chakra.p>
+    </chakra.div>
+  );
 }
