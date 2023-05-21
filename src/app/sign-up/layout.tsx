@@ -5,11 +5,11 @@ import Providers from "../providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Log In | TrustPaddi",
+  title: "Sign Up | TrustPaddi",
   description: "",
 };
 
-export default function LogInLayout({
+export default function SignUpLayout({
   children,
 }: {
   children: React.ReactNode;
