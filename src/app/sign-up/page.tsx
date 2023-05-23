@@ -4,10 +4,13 @@ import {
   Box,
   FormControl,
   FormLabel,
-  VStack,
-  chakra,
   Input,
   Button,
+  chakra,
+  Heading,
+  Text,
+  Image,
+  HStack,
 } from "@chakra-ui/react";
 import { useState, FormEvent } from "react";
 
@@ -29,47 +32,83 @@ export default function Signup() {
   };
 
   return (
-    <chakra.div>
-      <Box maxWidth="400px" mx="auto" p={4}>
-        <form onSubmit={handleSubmit}>
-          <VStack spacing={4}>
-            <FormControl id="name" isRequired>
+    <Box
+      height="100vh"
+      width="100vw"
+      display="flex"
+      backgroundImage={`url(../images/signupBg.svg)`}
+      backgroundSize="cover"
+      backgroundPosition="center"
+    >
+      <HStack flexDir="row" justify="center" align="flex-start" width="100vw">
+        <div
+          style={{
+            padding: "10rem",
+            width: "50%",
+            height: "100vh",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "flex-start",
+          }}
+        >
+          <chakra.div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Heading as="h2" size="xl" mb={4}>
+              TrustedPadi
+            </Heading>
+            <Image src="../images/logo.svg" alt="Logo" mb={4} />
+            <Text>Lorem Ipsum dalum</Text>
+          </chakra.div>
+        </div>
+
+        <chakra.form
+          width="50%"
+          bg="white"
+          flexDir="row"
+          justifyContent="center"
+          alignItems="flex-start"
+          p={10}
+          height="100vh"
+          onSubmit={handleSubmit}
+        >
+          <chakra.div width="80%">
+            <FormControl>
               <FormLabel>Name</FormLabel>
               <Input
-                type="text"
-                value={name}
                 onChange={(e) => setName(e.target.value)}
+                type="text"
+                placeholder="Enter your name"
+                mb={4}
               />
             </FormControl>
-
-            <FormControl id="email" isRequired>
+            <FormControl>
               <FormLabel>Email</FormLabel>
               <Input
-                type="email"
-                value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                type="email"
+                placeholder="Enter your email"
+                mb={4}
               />
             </FormControl>
-
-            <FormControl id="password" isRequired>
+            <FormControl>
               <FormLabel>Password</FormLabel>
               <Input
-                type="password"
-                value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                type="password"
+                placeholder="Enter your password"
+                mb={4}
               />
             </FormControl>
-
-            <Button
-              type="submit"
-              colorScheme="blue"
-              loadingText="Signing up..."
-            >
-              Sign Up
-            </Button>
-          </VStack>
-        </form>
-      </Box>
-    </chakra.div>
+            <Button colorScheme="blue">Sign Up</Button>
+          </chakra.div>
+        </chakra.form>
+      </HStack>
+    </Box>
   );
 }
