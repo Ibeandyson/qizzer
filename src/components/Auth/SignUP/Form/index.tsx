@@ -4,7 +4,6 @@ import {
   FormLabel,
   Input,
   Button,
-  Heading,
   Text,
   Image,
   Box,
@@ -29,8 +28,6 @@ function SignUPForm() {
   };
   return (
     <chakra.form
-      maxW={{ base: "100%", md: "50%" }}
-      bg={{ base: "transparent", md: "white" }}
       flexDir="row"
       justifyContent="center"
       alignItems="flex-start"
@@ -39,9 +36,8 @@ function SignUPForm() {
       onSubmit={handleSubmit}
     >
       <chakra.div width="100%" height="100%">
-        <Heading
+        <Text
           as="h1"
-          size="2xl"
           textAlign="center"
           fontSize={{ base: "24px", md: "32px" }}
           fontWeight="500"
@@ -49,7 +45,7 @@ function SignUPForm() {
           mb={4}
         >
           Sign up to get started
-        </Heading>
+        </Text>
         <Text
           fontSize="14px"
           fontWeight="400"

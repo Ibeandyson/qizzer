@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+import AuthLayout from "@/components/Auth/Layout";
 import { Inter } from "next/font/google";
 import Providers from "../providers";
 
@@ -17,7 +18,9 @@ export default function SignUpLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Providers>{children}</Providers>
+        <Providers>
+          <AuthLayout>{children}</AuthLayout>
+        </Providers>
       </body>
     </html>
   );
