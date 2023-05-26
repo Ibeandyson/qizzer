@@ -44,4 +44,4 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 - The branch will be deleted after being Reviewd and Merged
 - If you have pending task you to push on a branch, state it on the PR comment so i wont delete the branch
 
-### Note : ` Make a PR to dev only`
+### Note : ` Make a Pull Request to dev only`

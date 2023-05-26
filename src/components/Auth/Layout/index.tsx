@@ -51,7 +51,7 @@ function AuthLayout({ children }: Props) {
                 TrustPaddi
               </Heading>
               <Box w="64px" h="75px">
-                <Image src="../images/logo.svg" alt="Logo" />
+                <Image src="../imgs/logo.svg" alt="Logo" />
               </Box>
               <Text
                 w="539px"
@@ -97,7 +97,7 @@ function AuthLayout({ children }: Props) {
             </chakra.div>
           </Box>
         </Box>
-        {/* SIGN UP FORM  */}
+        {/* FORM  */}
         <Box
           maxW="720px"
           pt={{ base: "110px", lg: "0" }}

@@ -124,7 +124,7 @@ function SignUPForm() {
             <Image
               width={{ base: "145px", md: "170px" }}
               height="20px"
-              src="../images/Line1.svg"
+              src="../imgs/Line1.svg"
             />
             <Text fontSize="16px" color="#7A7A7A" fontWeight="500">
               or
@@ -132,7 +132,7 @@ function SignUPForm() {
             <Image
               width={{ base: "145px", md: "170px" }}
               height="20px"
-              src="../images/Line1.svg"
+              src="../imgs/Line1.svg"
             />
           </chakra.div>
           <Text
