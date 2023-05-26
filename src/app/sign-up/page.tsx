@@ -39,20 +39,31 @@ export default function Signup() {
       backgroundImage={`url(../images/signupBg.svg)`}
       backgroundSize="cover"
       backgroundPosition="start"
-      overflowX="hidden"
+      overflowX="hidden" // Mobile background image
+      sx={{
+        "@media (max-width: 768px)": {
+          backgroundImage: `url(../images/signupMobileBg.svg)`,
+        },
+      }}
     >
-      <HStack flexDir="row" justify="center" align="flex-start" width="100vw">
+      <HStack
+        flexDir={{ base: "column", md: "row" }}
+        justify="center"
+        align="flex-start"
+        width="100vw"
+      >
         <Box
           py="5rem"
-          width="50%"
+          px="3rem"
+          maxW="50%"
           height="100%"
-          display="flex"
+          display={{ base: "none", md: "flex" }}
           justifyContent="center"
           alignItems="flex-start"
         >
           <chakra.div
             style={{
-              width: "80%",
+              // width: "80%",
               height: "100%",
               display: "flex",
               flexDirection: "column",
@@ -103,21 +114,21 @@ export default function Signup() {
         </Box>
 
         <chakra.form
-          width="50%"
-          bg="white"
+          maxW={{ base: "100%", md: "50%" }}
+          bg={{ base: "transparent", md: "white" }}
           flexDir="row"
           justifyContent="center"
           alignItems="flex-start"
-          p="5rem"
-          height="100vh"
+          p={{ base: "1rem", md: "7rem" }}
+          minH="100vh"
           onSubmit={handleSubmit}
         >
-          <chakra.div width="fit-content">
+          <chakra.div width="100%" height="100%">
             <Heading
               as="h1"
               size="2xl"
               textAlign="center"
-              fontSize="32px"
+              fontSize={{ base: "24px", md: "32px" }}
               fontWeight="500"
               lineHeight="38.4px"
               mb={4}
@@ -143,7 +154,7 @@ export default function Signup() {
                 onChange={(e) => setName(e.target.value)}
                 type="text"
                 mb={4}
-                width="430px"
+                width="100%"
                 height="50px"
                 padding="8px"
                 borderRadius="8px"
@@ -158,7 +169,7 @@ export default function Signup() {
                 onChange={(e) => setEmail(e.target.value)}
                 type="email"
                 mb={4}
-                width="430px"
+                width="100%"
                 height="50px"
                 padding="8px"
                 borderRadius="8px"
@@ -173,101 +184,108 @@ export default function Signup() {
                 onChange={(e) => setPassword(e.target.value)}
                 type="password"
                 mb={4}
-                width="430px"
+                width="100%"
                 height="50px"
                 padding="8px"
                 borderRadius="8px"
                 borderColor="#7A7A7A"
               />
+              <Button
+                height="55px"
+                width="100%"
+                left="0px"
+                borderRadius="8px"
+                padding="12px 48px"
+                color="white"
+                backgroundColor="#220075"
+              >
+                Register
+              </Button>
             </FormControl>
-            <Button
-              height="55px"
-              width="430px"
-              left="0px"
-              borderRadius="8px"
-              padding="12px 48px"
-              color="white"
-              backgroundColor="#220075"
-            >
-              Register
-            </Button>
-            <chakra.div
-              display="flex"
-              justifyContent="space-between"
-              alignItems="center"
-              width="100%"
-              my="15px"
-            >
-              <Text fontSize="16px" color="#7A7A7A" fontWeight="500">
-                or
-                {" "}
+            <Box width="fit">
+              <chakra.div
+                display="flex"
+                justifyContent="space-between"
+                alignItems="center"
+                width="100%"
+                my="15px"
+              >
+                <Image
+                  width={{ base: "145px", md: "170px" }}
+                  height="20px"
+                  src="../images/Line1.svg"
+                />
+                <Text fontSize="16px" color="#7A7A7A" fontWeight="500">
+                  or
+                </Text>
+                <Image
+                  width={{ base: "145px", md: "170px" }}
+                  height="20px"
+                  src="../images/Line1.svg"
+                />
+              </chakra.div>
+              <Text
+                fontSize="14px"
+                my="15px"
+                fontWeight="400"
+                color="#333333"
+                textAlign="center"
+              >
+                Sign Up with any of these
               </Text>
-            </chakra.div>
-            <Text
-              fontSize="14px"
-              my="15px"
-              fontWeight="400"
-              color="#333333"
-              textAlign="center"
-            >
-              Sign Up with any of these
-            </Text>
-            <chakra.div
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-            >
-              <chakra.div
-                display="flex"
-                flexDirection="column"
-                alignItems="center"
-              >
-                <Image src="../icons/facebookIcon.svg" />
-                <Text
-                  fontSize="14px"
-                  fontWeight="400"
-                  color="#1E1E1E"
-                  textAlign="center"
-                  mt="5px"
+              <Box display="flex" justifyContent="center" alignItems="center">
+                <chakra.div
+                  display="flex"
+                  flexDirection="column"
+                  alignItems="center"
                 >
-                  Facebook
-                </Text>
-              </chakra.div>
-              <chakra.div
-                display="flex"
-                flexDirection="column"
-                alignItems="center"
-                my="10px"
-                mx="60px"
-              >
-                <Image src="../icons/Google.svg" />
-                <Text
-                  fontSize="14px"
-                  fontWeight="400"
-                  color="#1E1E1E"
-                  textAlign="center"
-                  mt="5px"
+                  <Image src="../icons/facebookIcon.svg" />
+                  <Text
+                    fontSize="14px"
+                    fontWeight="400"
+                    color="#1E1E1E"
+                    textAlign="center"
+                    mt="5px"
+                  >
+                    Facebook
+                  </Text>
+                </chakra.div>
+                <chakra.div
+                  display="flex"
+                  flexDirection="column"
+                  alignItems="center"
+                  my="10px"
+                  mx="60px"
                 >
-                  Facebook
-                </Text>
-              </chakra.div>
-              <chakra.div
-                display="flex"
-                flexDirection="column"
-                alignItems="center"
-              >
-                <Image src="../icons/appleLogo.svg" />
-                <Text
-                  fontSize="14px"
-                  fontWeight="400"
-                  color="#1E1E1E"
-                  textAlign="center"
-                  mt="5px"
+                  <Image src="../icons/Google.svg" />
+                  <Text
+                    fontSize="14px"
+                    fontWeight="400"
+                    color="#1E1E1E"
+                    textAlign="center"
+                    mt="5px"
+                  >
+                    Google
+                  </Text>
+                </chakra.div>
+                <chakra.div
+                  display="flex"
+                  flexDirection="column"
+                  alignItems="center"
                 >
-                  Facebook
-                </Text>
-              </chakra.div>
-            </chakra.div>
+                  <Image src="../icons/appleLogo.svg" />
+                  <Text
+                    fontSize="14px"
+                    fontWeight="400"
+                    color="#1E1E1E"
+                    textAlign="center"
+                    mt="5px"
+                  >
+                    Apple
+                  </Text>
+                </chakra.div>
+              </Box>
+            </Box>
           </chakra.div>
         </chakra.form>
       </HStack>
