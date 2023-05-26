@@ -2,8 +2,57 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  /* font-family: "Aeonik"; */
 }
 
 body {
   background: #fff;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+  src: url("fonts/Aeonik-Thin.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "Aeonik";
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: url("fonts/Aeonik-Light.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "Aeonik";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("fonts/Aeonik-Regular.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "Aeonik";
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url("fonts/Aeonik-Medium.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "Aeonik";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url("fonts/Aeonik-Bold.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "Aeonik";
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+  src: url("fonts/Aeonik-Black.otf") format("truetype");
 }
