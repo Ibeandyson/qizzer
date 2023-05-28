@@ -1,38 +1,40 @@
 "use client";
 
 import { chakra } from "@chakra-ui/react";
+import { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import DashboardIcon from "../SVG-Icons/DashboardIcon";
 
 type Props = {
+  Icon: ({ color }: { color: string }) => JSX.Element;
   label: string;
   path: string;
 };
 
-function Tab({ label, path }: Props) {
+function Tab({ Icon, label, path }: Props) {
   const router = useRouter();
   const pathname = usePathname();
+
+  const [active, setActive] = useState<boolean>(false);
 
   return (
     <chakra.div
       onClick={() => router.push(path)}
       w="full"
-      h="38px"
-      bg="#E9E6F1"
+      h="48px"
+      // bg="#E9E6F1"
+      bg={pathname === path || active ? "#E9E6F1" : "#FFF"}
+      color={pathname === path || active ? "#4E3391" : "#7A7A7A"}
       borderRadius="4px"
       display="flex"
       alignItems="center"
       gap="10px"
       px="20px"
       cursor="pointer"
+      onMouseOver={() => setActive(true)}
+      onMouseOut={() => setActive(false)}
     >
-      <DashboardIcon color={pathname === path ? "#4E3391" : "#7A7A7A"} />
-      <chakra.p
-        fontSize="14px"
-        fontWeight={400}
-        color="#220075"
-        className="text-[14px] font-normal text-primary"
-      >
+      <Icon color={pathname === path || active ? "#4E3391" : "#7A7A7A"} />
+      <chakra.p fontSize="14px" fontWeight={500}>
         {label}
       </chakra.p>
     </chakra.div>

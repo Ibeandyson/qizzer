@@ -28,7 +28,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "lint-staged.config.js"
+    "lint-staged.config.js",
+    "src/components/Dashboard/MultiTabs"
   ],
   "exclude": ["node_modules"]
 }
