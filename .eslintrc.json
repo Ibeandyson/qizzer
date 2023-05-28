@@ -12,7 +12,9 @@
     "react/jsx-curly-brace-presence": "off",
     "react-hooks/exhaustive-deps": "off",
     "import/no-extraneous-dependencies": "off",
-    "object-curly-newline": "off"
+    "object-curly-newline": "off",
+    "react/jsx-wrap-multilines": "off",
+    "react/no-array-index-key": "off"
   },
   "parserOptions": {
     "project": "./tsconfig.json"
