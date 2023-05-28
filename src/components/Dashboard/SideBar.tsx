@@ -4,6 +4,8 @@ import Tab from "./Tab";
 import DashboardIcon from "../SVG-Icons/DashboardIcon";
 import OrdersIcon from "../SVG-Icons/OrdersIcon";
 import LogisticsIcon from "../SVG-Icons/LogisticsIcon";
+import PrivacyIcon from "../SVG-Icons/PrivacyIcon";
+import SettingsIcon from "../SVG-Icons/SettingsIcon";
 
 function SideBar() {
   return (
@@ -21,7 +23,7 @@ function SideBar() {
       <chakra.img mx="auto" src="/imgs/logo-large.svg" alt="logo" />
       <chakra.div w="full" h="0px" border="1px solid #D7D7D7" mt="20px" />
       <chakra.div pt="40px" px="5px">
-        <chakra.p fontSize="12px" fontWeight={400} color="#6C6C6C">
+        <chakra.p fontSize="12px" fontWeight={500} color="#6C6C6C">
           MENU
         </chakra.p>
         <chakra.div mt="30px">
@@ -29,6 +31,15 @@ function SideBar() {
           <MultiTabs />
           <Tab Icon={OrdersIcon} label="Orders" path="/orders" />
           <Tab Icon={LogisticsIcon} label="Logistics" path="/logistics" />
+          <chakra.div
+            w="full"
+            h="0px"
+            border="1px solid #D7D7D7"
+            mt="20px"
+            mb="20px"
+          />
+          <Tab Icon={PrivacyIcon} label="Privacy" path="/privacy" />
+          <Tab Icon={SettingsIcon} label="Settings" path="/settings" />
         </chakra.div>
       </chakra.div>
     </chakra.div>

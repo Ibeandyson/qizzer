@@ -43,10 +43,9 @@ function AccordionTab({ data: { label, Icon, subTabs } }: Props) {
               <Icon color={isExpanded || active ? "#4E3391" : "#7A7A7A"} />
               <chakra.p
                 fontSize="14px"
-                fontWeight={400}
+                fontWeight={500}
                 color={isExpanded || active ? "#4E3391" : "#7A7A7A"}
                 className="text-[14px] font-normal text-primary"
-                // _groupHover={{}}
               >
                 {label}
               </chakra.p>
@@ -60,11 +59,14 @@ function AccordionTab({ data: { label, Icon, subTabs } }: Props) {
                 h="38px"
                 display="flex"
                 alignItems="center"
+                fontSize="14px"
+                fontWeight={500}
+                color="#7A7A7A"
+                cursor="pointer"
                 pl="20px"
+                _hover={{ color: "#4E3391" }}
               >
-                <chakra.p fontSize="14px" fontWeight={400} color="#7A7A7A">
-                  {subLabel}
-                </chakra.p>
+                <chakra.p>{subLabel}</chakra.p>
               </chakra.div>
             ))}
           </AccordionPanel>

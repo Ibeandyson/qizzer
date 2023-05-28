@@ -34,7 +34,7 @@ function Tab({ Icon, label, path }: Props) {
       onMouseOut={() => setActive(false)}
     >
       <Icon color={pathname === path || active ? "#4E3391" : "#7A7A7A"} />
-      <chakra.p fontSize="14px" fontWeight={400}>
+      <chakra.p fontSize="14px" fontWeight={500}>
         {label}
       </chakra.p>
     </chakra.div>
