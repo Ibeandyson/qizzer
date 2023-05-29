@@ -2,11 +2,15 @@ import React from "react";
 import DesktopNavBar from "./DesktopNavBar";
 import MobileNavBar from "./MobileNavBar";
 
-export default function index() {
+type Props = {
+  onOpen: () => void;
+};
+
+export default function NavBar({ onOpen }: Props) {
   return (
     <>
       <DesktopNavBar />
-      <MobileNavBar />
+      <MobileNavBar onOpen={onOpen} />
     </>
   );
 }
