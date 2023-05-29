@@ -11,7 +11,7 @@ function DropDownIcon({ rotate }: Props) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       style={{
-        rotate: rotate ? "0deg" : "180deg",
+        rotate: rotate ? "180deg" : "0deg",
       }}
     >
       <path
