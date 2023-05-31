@@ -6,11 +6,11 @@ import Providers from "../providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Account Verification| TrustPaddi",
+  title: "Verification Succesful | TrustPaddi",
   description: "",
 };
 
-export default function AccountVerificationLayout({
+export default function VerificationSuccesfulLayout({
   children,
 }: {
   children: React.ReactNode;
