@@ -69,7 +69,7 @@ export default function DesktopNavBar() {
                     name="Ozumah Ebenezer"
                   />
 
-                  <DropDownIcon rotate={!isOpen} />
+                  <DropDownIcon rotate={isOpen} />
                 </chakra.div>
               </MenuButton>
               <MenuList>

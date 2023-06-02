@@ -1,7 +1,11 @@
 import HamburgerIcon from "@/components/SVG-Icons/HamburgerIcon";
 import { chakra, IconButton } from "@chakra-ui/react";
 
-export default function MobileNavBar() {
+type Props = {
+  onOpen: () => void;
+};
+
+export default function MobileNavBar({ onOpen }: Props) {
   return (
     <chakra.div
       display={{ base: "flex", lg: "none" }}
@@ -21,6 +25,7 @@ export default function MobileNavBar() {
         aria-label="hamburger"
         icon={<HamburgerIcon />}
         bg="#E9E6F1"
+        onClick={onOpen}
       />
     </chakra.div>
   );

@@ -45,7 +45,7 @@ const multiTabsData = [
   },
 ];
 
-function MultiTab() {
+function MultiTabs() {
   return (
     <Accordion>
       {multiTabsData.map((data, i) => (
@@ -55,4 +55,4 @@ function MultiTab() {
   );
 }
 
-export default MultiTab;
+export default MultiTabs;

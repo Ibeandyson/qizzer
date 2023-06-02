@@ -1,13 +1,13 @@
 import { chakra } from "@chakra-ui/react";
 import MultiTabs from "@/components/Dashboard/MultiTabs";
-import Tab from "./Tab";
-import DashboardIcon from "../SVG-Icons/DashboardIcon";
-import OrdersIcon from "../SVG-Icons/OrdersIcon";
-import LogisticsIcon from "../SVG-Icons/LogisticsIcon";
-import PrivacyIcon from "../SVG-Icons/PrivacyIcon";
-import SettingsIcon from "../SVG-Icons/SettingsIcon";
+import Tab from "../Tab";
+import DashboardIcon from "../../SVG-Icons/DashboardIcon";
+import OrdersIcon from "../../SVG-Icons/OrdersIcon";
+import LogisticsIcon from "../../SVG-Icons/LogisticsIcon";
+import PrivacyIcon from "../../SVG-Icons/PrivacyIcon";
+import SettingsIcon from "../../SVG-Icons/SettingsIcon";
 
-function SideBar() {
+function DesktopSideBar() {
   return (
     <chakra.div
       pos={{ base: "fixed" }}
@@ -46,4 +46,4 @@ function SideBar() {
   );
 }
 
-export default SideBar;
+export default DesktopSideBar;
