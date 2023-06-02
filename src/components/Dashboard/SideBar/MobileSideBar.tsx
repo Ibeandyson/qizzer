@@ -1,11 +1,12 @@
 import {
+  chakra,
+  Avatar,
   Drawer,
   DrawerBody,
   DrawerFooter,
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
-  chakra,
 } from "@chakra-ui/react";
 import OrdersIcon from "@/components/SVG-Icons/OrdersIcon";
 import DashboardIcon from "@/components/SVG-Icons/DashboardIcon";
@@ -28,8 +29,19 @@ function MobileSideBar({ open, onClose }: Props) {
       <DrawerOverlay />
       <DrawerContent borderTopLeftRadius="30px" borderBottomLeftRadius="30px">
         <DrawerCloseButton />
-        <DrawerBody>
-          <chakra.div pt="40px" px="5px">
+        <DrawerBody pt="40px">
+          <chakra.div display="flex" justifyContent="center">
+            <Avatar
+              src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
+              name="Ozumah Ebenezer"
+              bg="#220075"
+              color="#FFF"
+              size="xl"
+              mx="auto"
+            />
+          </chakra.div>
+          <chakra.div w="full" h="0px" border="1px solid #D7D7D7" mt="30px" />
+          <chakra.div pt="30px" px="5px">
             <chakra.p fontSize="12px" fontWeight={500} color="#6C6C6C">
               MENU
             </chakra.p>
