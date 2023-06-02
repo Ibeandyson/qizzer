@@ -7,15 +7,15 @@ import {
   Text,
   Image,
   Box,
+  Heading,
 } from "@chakra-ui/react";
 
 import { FormEvent, useState } from "react";
 
 function SignUPForm() {
-  const [name, setName] = useState("");
+  const [name] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -24,8 +24,10 @@ function SignUPForm() {
       email,
       password,
     };
+
     console.log(params);
   };
+
   return (
     <chakra.form
       flexDir="row"
@@ -36,7 +38,7 @@ function SignUPForm() {
       onSubmit={handleSubmit}
     >
       <chakra.div width="100%" height="100%">
-        <Text
+        <Heading
           as="h1"
           textAlign="center"
           fontSize={{ base: "24px", md: "32px" }}
@@ -44,8 +46,8 @@ function SignUPForm() {
           lineHeight="38.4px"
           mb={4}
         >
-          Sign up to get started
-        </Text>
+          Welcome back, Buddy
+        </Heading>
         <Text
           fontSize="14px"
           fontWeight="400"
@@ -57,22 +59,7 @@ function SignUPForm() {
             Register here
           </span>
         </Text>
-        <FormControl top="6px">
-          <FormLabel fontSize="14px" fontWeight="500" lineHeight="16.8px">
-            Name
-          </FormLabel>
-          <Input
-            onChange={(e) => setName(e.target.value)}
-            type="text"
-            mb={4}
-            width="100%"
-            height="50px"
-            padding="8px"
-            borderRadius="8px"
-            borderColor="#7A7A7A"
-          />
-        </FormControl>
-        <FormControl>
+        <FormControl mt="10px">
           <FormLabel fontSize="14px" fontWeight="500" lineHeight="16.8px">
             Email Address
           </FormLabel>
@@ -112,6 +99,18 @@ function SignUPForm() {
           >
             Register
           </Button>
+          <Text
+            fontSize="14px"
+            fontWeight="400"
+            textAlign="center"
+            lineHeight="16.8px"
+            my="15px"
+          >
+            Can’t remember your password?
+            <span style={{ color: "purple", fontWeight: "500" }}>
+              Reset Password
+            </span>
+          </Text>
         </FormControl>
         <Box width="fit">
           <chakra.div
@@ -135,15 +134,6 @@ function SignUPForm() {
               src="../imgs/Line1.svg"
             />
           </chakra.div>
-          <Text
-            fontSize="14px"
-            my="15px"
-            fontWeight="400"
-            color="#333333"
-            textAlign="center"
-          >
-            Sign Up with any of these
-          </Text>
           <Box display="flex" justifyContent="center" alignItems="center">
             <chakra.div
               display="flex"
@@ -201,5 +191,4 @@ function SignUPForm() {
     </chakra.form>
   );
 }
-
 export default SignUPForm;
