@@ -21,3 +21,4 @@ import { createSlice } from "@reduxjs/toolkit";
   export const {setToke, setUserLoading} = userSlice.actions;
 
   export default userSlice
+  
