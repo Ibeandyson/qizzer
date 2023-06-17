@@ -1,7 +1,8 @@
 "use client";
-
-import SampleModal from "@/components/ReuseableComponents/Modals/SampleModal";
+import React from "react";
 import { chakra, useDisclosure } from "@chakra-ui/react";
+import SampleModal from "../../components/ReuseableComponents/Modals/SampleModal";
+// import SampleModal from "@/components/ReuseableComponents/Modals/SampleModal";
 
 export default function Dashboard() {
   const { isOpen, onOpen, onClose }: any = useDisclosure();

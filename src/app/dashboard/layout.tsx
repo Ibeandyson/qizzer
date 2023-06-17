@@ -1,9 +1,6 @@
 import "../styles/globals.css";
-import { Inter } from "next/font/google";
 import Layout from "@/components/Dashboard/Layout";
 import Providers from "../providers";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Dashboard",
@@ -17,7 +14,7 @@ export default function DashboardLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <Providers>
           <Layout>{children}</Layout>
         </Providers>
