@@ -23,7 +23,7 @@ function SignUPForm() {
   return (
     <chakra.form flexDir="row" justifyContent="center" alignItems="center" px={{base: '2.5rem', md: '7rem'}} minH="100vh" onSubmit={handleSubmit}>
       <chakra.div width="100%" height="100%">
-        <Heading as="h2" textAlign="center" fontSize={{base: '24px', md: '32px'}} fontWeight="500" lineHeight="38.4px" mb={4}>
+        <Heading as="h1" textAlign="center" fontSize={{base: '24px', md: '32px'}} fontWeight="500" lineHeight="38.4px" mb={4}>
           Welcome back
         </Heading>
         <Text fontSize="14px" fontWeight="400" textAlign="center" lineHeight="16.8px" mb="50px">

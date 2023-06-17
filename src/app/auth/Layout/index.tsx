@@ -25,7 +25,6 @@ function AuthLayout({children}: Props) {
             alignItems="center">
             <chakra.div
               style={{
-                // width: "80%",
                 height: '100%',
                 display: 'flex',
                 flexDirection: 'column',

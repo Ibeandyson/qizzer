@@ -1,8 +1,8 @@
-"use client"
+'use client';
 
 import {NextPage} from 'next';
 import {FormEvent, ChangeEvent, useState} from 'react';
-import {chakra, FormControl, FormLabel, Input, Button, Text, Image, Box} from '@chakra-ui/react';
+import {chakra, FormControl, FormLabel, Input, Button, Text, Image, Box, Heading} from '@chakra-ui/react';
 
 const Signup: NextPage = () => {
   const [signUpData, setSignUpData] = useState({
@@ -20,14 +20,14 @@ const Signup: NextPage = () => {
   };
   return (
     <main>
-      <chakra.form flexDir="row" justifyContent="center" alignItems="flex-start" p={{base: '1rem', md: '7rem'}} minH="100vh" onSubmit={handleSubmit}>
+      <chakra.form flexDir="row" justifyContent="center" alignItems="center" px={{base: '2.5rem', md: '7rem'}} minH="100vh" onSubmit={handleSubmit}>
         <chakra.div width="100%" height="100%">
-          <Text as="h1" textAlign="center" fontSize={{base: '24px', md: '32px'}} fontWeight="500" lineHeight="38.4px" mb={4}>
+          <Heading as="h1" textAlign="center" fontSize={{base: '24px', md: '32px'}} fontWeight="500" lineHeight="38.4px" mb={4}>
             Sign up to get started
-          </Text>
-          <Text fontSize="14px" fontWeight="400" textAlign="center" lineHeight="16.8px">
-            Don’t have an account?
-            <span style={{color: 'purple', fontWeight: '500'}}>Register here</span>
+          </Heading>
+          <Text fontSize="14px" fontWeight="400" textAlign="center" lineHeight="16.8px" mb="50px">
+            Have an account?
+            <span style={{color: 'purple', fontWeight: '500', marginLeft: '5px'}}>Login here</span>
           </Text>
           <FormControl top="6px">
             <FormLabel fontSize="14px" fontWeight="500" lineHeight="16.8px">
