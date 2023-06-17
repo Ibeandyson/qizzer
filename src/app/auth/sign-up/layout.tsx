@@ -1,7 +1,7 @@
-import "../styles/globals.css";
-import AuthLayout from "@/components/Auth/Layout";
+import "../../styles/globals.css";
+import AuthLayout from "@/app/auth/Layout";
 import { Inter } from "next/font/google";
-import Providers from "../providers";
+import Providers from "../../providers";
 
 const inter = Inter({ subsets: ["latin"] });
 

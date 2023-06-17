@@ -1,16 +1,16 @@
-import "../styles/globals.css";
+import "../../styles/globals.css";
+import AuthLayout from "@/app/auth/Layout";
 import { Inter } from "next/font/google";
-import VerificationLayout from "@/components/Verification/Layout";
-import Providers from "../providers";
+import Providers from "../../providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Account Verification| TrustPaddi",
+  title: "Log In | TrustPaddi",
   description: "",
 };
 
-export default function AccountVerificationLayout({
+export default function LogInLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -19,7 +19,7 @@ export default function AccountVerificationLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-          <VerificationLayout>{children}</VerificationLayout>
+          <AuthLayout>{children}</AuthLayout>
         </Providers>
       </body>
     </html>
