@@ -25,7 +25,7 @@ function VerificationLayout({ children }: Props) {
     >
       <Box display="flex" alignItems="center" mb="1.5rem">
         <Image width="39px" src="../imgs/logo.svg" />
-        <Text fontSize="24px" fontWeight="500" color="#220075">
+        <Text fontSize="20px" fontWeight="600" color="#220075" paddingLeft={"10px"}>
           TrustPaddi
         </Text>
       </Box>
