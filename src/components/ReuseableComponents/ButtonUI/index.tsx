@@ -1,18 +1,23 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 import {Button} from '@chakra-ui/react';
+import {ReactJSXElement} from '@emotion/react/types/jsx-namespace';
 
 type Props = {
   label: string;
   loading?: boolean;
   onClick: () => void;
+  leftIcon?: ReactJSXElement;
+  rightIcon?: ReactJSXElement;
 };
 
-function ButtonUI({label, loading, onClick}: Props) {
+function ButtonUI({label, loading, onClick, leftIcon, rightIcon}: Props) {
   return (
     <Button
       isLoading={loading}
       loadingText="Please Wait"
       spinnerPlacement="start"
+      leftIcon={leftIcon}
+      rightIcon={rightIcon}
       disabled={loading}
       onClick={onClick}
       w={{base: 'full'}}
