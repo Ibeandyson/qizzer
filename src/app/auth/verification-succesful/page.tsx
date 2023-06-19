@@ -1,6 +1,6 @@
 'use client';
-
 import {Box, Button, Heading, Text, Image} from '@chakra-ui/react';
+import ButtonUI from '@/components/ReuseableComponents/ButtonUI';
 
 export default function VerificationSuccesful() {
   return (
@@ -12,18 +12,7 @@ export default function VerificationSuccesful() {
       <Text fontSize={{base: '12px', md: '12px'}} fontWeight="400" color="#333333" mb="3rem">
         You’ve successfully verified your email
       </Text>
-      <Button
-        height="55px"
-        width="100%"
-        left="0px"
-        borderRadius="8px"
-        padding="12px 48px"
-        color="white"
-        backgroundColor="#220075"
-        fontSize="15px"
-        fontWeight="500">
-        Go To Login
-      </Button>
+      <ButtonUI label="Go To Login" onClick={() => {}} />
     </Box>
   );
 }
