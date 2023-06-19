@@ -17,7 +17,7 @@ function Layout({ children }: Props) {
       <SideBar isOpen={isOpen} onClose={onClose} />
       <chakra.div pl={{ lg: "300px" }}>
         <NavBar onOpen={onOpen} />
-        <chakra.div p="20px">{children}</chakra.div>
+        <chakra.div p="24px">{children}</chakra.div>
       </chakra.div>
     </chakra.main>
   );
