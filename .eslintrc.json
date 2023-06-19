@@ -14,7 +14,17 @@
     "import/no-extraneous-dependencies": "off",
     "object-curly-newline": "off",
     "react/jsx-wrap-multilines": "off",
-    "react/no-array-index-key": "off"
+    "react/no-array-index-key": "off",
+    "@typescript-eslint/semi": "off",
+    "@typescript-eslint/indent": "off",
+    "no-multiple-empty-lines": "off",
+    "@typescript-eslint/comma-dangle": "off",
+    "eol-last": "off",
+    "no-multi-spaces": "off",
+    "no-param-reassign": "off",
+    "@typescript-eslint/object-curly-spacing": "off",
+    "arrow-body-style": "off",
+    "no-trailing-spaces": "off",
   },
   "parserOptions": {
     "project": "./tsconfig.json"
