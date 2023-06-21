@@ -1,13 +1,12 @@
-import React, {ReactNode} from 'react';
+import {ReactHTMLElement, ReactHTML, ReactElement } from 'react';
 import {Button} from '@chakra-ui/react';
-import {ReactJSXElement} from '@emotion/react/types/jsx-namespace';
 
 type Props = {
   label: string;
   loading?: boolean;
   onClick: () => void;
-  leftIcon?: ReactJSXElement;
-  rightIcon?: ReactJSXElement;
+  leftIcon?: ReactElement;
+  rightIcon?: ReactElement ;
 };
 
 function ButtonUI({label, loading, onClick, leftIcon, rightIcon}: Props) {
