@@ -36,5 +36,3 @@ function ModalUI({ isOpen, onClose, header, children }: Props) {
 }
 
 export default ModalUI;
-
-// 794804

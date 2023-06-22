@@ -1,6 +1,6 @@
-import "../styles/globals.css";
-import Layout from "@/components/Dashboard/Layout";
-import Providers from "../providers";
+import "../../styles/globals.css";
+import Layout from "@/app/dashboard/layout/Layout";
+import Providers from "../../providers";
 
 export const metadata = {
   title: "Dashboard",

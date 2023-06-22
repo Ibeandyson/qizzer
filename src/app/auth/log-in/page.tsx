@@ -1,5 +1,4 @@
 "use client";
-
 import {
   chakra,
   FormControl,
@@ -11,8 +10,10 @@ import {
   Box,
   Heading,
 } from "@chakra-ui/react";
-
+import ButtonUI from "@/components/ReuseableComponents/ButtonUI";
+import InputUI from "@/components/ReuseableComponents/InputUI";
 import { FormEvent, useState } from "react";
+import Link from "next/link";
 
 function SignUPForm() {
   const [name] = useState("");
@@ -31,13 +32,12 @@ function SignUPForm() {
   };
 
   return (
-    <chakra.form
+    <chakra.div
       flexDir="row"
       justifyContent="center"
       alignItems="center"
       px={{ base: "2.5rem", md: "7rem" }}
       minH="100vh"
-      onSubmit={handleSubmit}
     >
       <chakra.div width="100%" height="100%">
         <Heading
@@ -59,66 +59,53 @@ function SignUPForm() {
         >
           Don’t have an account?
           <span
-            style={{ color: "purple", fontWeight: "500", marginLeft: "5px" }}
+            style={{
+              color: "purple",
+              fontWeight: "500",
+              marginLeft: "5px",
+              cursor: "pointer",
+            }}
           >
-            Register here
+            <Link href={"/auth/sign-up"}>Register here</Link>
           </span>
         </Text>
-        <FormControl mt="10px">
-          <FormLabel fontSize="14px" fontWeight="500" lineHeight="16.8px">
-            Email Address
-          </FormLabel>
-          <Input
-            onChange={(e) => setEmail(e.target.value)}
-            type="email"
-            mb={4}
-            width="100%"
-            height="50px"
-            padding="8px"
-            borderRadius="8px"
-            borderColor="#7A7A7A"
-          />
-        </FormControl>
-        <FormControl>
-          <FormLabel fontSize="14px" fontWeight="500" lineHeight="16.8px">
-            Password
-          </FormLabel>
-          <Input
-            onChange={(e) => setPassword(e.target.value)}
-            type="password"
-            mb={4}
-            width="100%"
-            height="50px"
-            padding="8px"
-            borderRadius="8px"
-            borderColor="#7A7A7A"
-          />
-          <Button
-            height="55px"
-            width="100%"
-            left="0px"
-            borderRadius="8px"
-            padding="12px 48px"
-            color="white"
-            backgroundColor="#220075"
+        <InputUI
+          type="email"
+          style={{ marginBottom: "40px", marginTop: "20px" }}
+          lable="Email"
+          value=""
+          onchange={() => {}}
+          placeHolder=""
+        />
+        <InputUI
+          type="password"
+          style={{ marginBottom: "40px", marginTop: "20px" }}
+          lable="Password"
+          value=""
+          onchange={() => {}}
+          placeHolder=""
+        />
+        <ButtonUI loading={false} label="Login" onClick={() => {}} />
+        <Text
+          fontSize="14px"
+          fontWeight="400"
+          textAlign="center"
+          lineHeight="16.8px"
+          my="15px"
+        >
+          Can’t remember your password?
+          <span
+            style={{
+              color: "purple",
+              fontWeight: "500",
+              marginLeft: "5px",
+              cursor: "pointer",
+            }}
           >
-            Register
-          </Button>
-          <Text
-            fontSize="14px"
-            fontWeight="400"
-            textAlign="center"
-            lineHeight="16.8px"
-            my="15px"
-          >
-            Can’t remember your password?
-            <span
-              style={{ color: "purple", fontWeight: "500", marginLeft: "5px" }}
-            >
-              Reset Password
-            </span>
-          </Text>
-        </FormControl>
+            <Link href={"/auth/forgot-password"}>Reset Password</Link>
+          </span>
+        </Text>
+
         <Box width="fit">
           <chakra.div
             display="flex"
@@ -195,7 +182,7 @@ function SignUPForm() {
           </Box>
         </Box>
       </chakra.div>
-    </chakra.form>
+    </chakra.div>
   );
 }
 export default SignUPForm;

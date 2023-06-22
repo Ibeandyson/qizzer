@@ -1,5 +1,4 @@
 "use client";
-
 import { NextPage } from "next";
 import { FormEvent, ChangeEvent, useState } from "react";
 import {
@@ -13,6 +12,9 @@ import {
   Box,
   Heading,
 } from "@chakra-ui/react";
+import ButtonUI from "@/components/ReuseableComponents/ButtonUI";
+import InputUI from "@/components/ReuseableComponents/InputUI";
+import Link from "next/link";
 
 const Signup: NextPage = () => {
   const [signUpData, setSignUpData] = useState({
@@ -28,15 +30,15 @@ const Signup: NextPage = () => {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
+
   return (
     <main>
-      <chakra.form
+      <chakra.div
         flexDir="row"
         justifyContent="center"
         alignItems="center"
         px={{ base: "2.5rem", md: "7rem" }}
         minH="100vh"
-        onSubmit={handleSubmit}
       >
         <chakra.div width="100%" height="100%">
           <Heading
@@ -58,65 +60,66 @@ const Signup: NextPage = () => {
           >
             Have an account?
             <span
-              style={{ color: "purple", fontWeight: "500", marginLeft: "5px" }}
+              style={{
+                color: "purple",
+                fontWeight: "500",
+                marginLeft: "5px",
+                cursor: "pointer",
+              }}
             >
-              Login here
+              <Link href={"/auth/log-in"}>Login here</Link>
             </span>
           </Text>
-          <FormControl top="6px">
-            <FormLabel fontSize="14px" fontWeight="500" lineHeight="16.8px">
-              Name
-            </FormLabel>
-            <Input
-              type="text"
-              name="email"
-              mb={4}
-              width="100%"
-              height="50px"
-              padding="8px"
-              borderRadius="8px"
-              borderColor="#7A7A7A"
-            />
-          </FormControl>
-          <FormControl>
-            <FormLabel fontSize="14px" fontWeight="500" lineHeight="16.8px">
-              Email Address
-            </FormLabel>
-            <Input
-              type="email"
-              mb={4}
-              width="100%"
-              height="50px"
-              padding="8px"
-              borderRadius="8px"
-              borderColor="#7A7A7A"
-            />
-          </FormControl>
-          <FormControl>
-            <FormLabel fontSize="14px" fontWeight="500" lineHeight="16.8px">
-              Password
-            </FormLabel>
-            <Input
-              type="password"
-              mb={4}
-              width="100%"
-              height="50px"
-              padding="8px"
-              borderRadius="8px"
-              borderColor="#7A7A7A"
-            />
-            <Button
-              height="55px"
-              width="100%"
-              left="0px"
-              borderRadius="8px"
-              padding="12px 48px"
-              color="white"
-              backgroundColor="#220075"
-            >
-              Register
-            </Button>
-          </FormControl>
+
+          <InputUI
+            type="text"
+            style={{ marginBottom: "40px", marginTop: "20px" }}
+            lable="First Name"
+            value=""
+            onchange={() => {}}
+            placeHolder=""
+          />
+          <InputUI
+            type="text"
+            style={{ marginBottom: "40px", marginTop: "20px" }}
+            lable="Last Name"
+            value=""
+            onchange={() => {}}
+            placeHolder=""
+          />
+          <InputUI
+            type="email"
+            style={{ marginBottom: "40px", marginTop: "20px" }}
+            lable="Email"
+            value=""
+            onchange={() => {}}
+            placeHolder=""
+          />
+          <InputUI
+            type="number"
+            style={{ marginBottom: "40px", marginTop: "20px" }}
+            lable="Phone"
+            value=""
+            onchange={() => {}}
+            placeHolder=""
+          />
+          <InputUI
+            type="password"
+            style={{ marginBottom: "40px", marginTop: "20px" }}
+            lable="Password"
+            value=""
+            onchange={() => {}}
+            placeHolder=""
+          />
+          <InputUI
+            type="password"
+            style={{ marginBottom: "40px", marginTop: "20px" }}
+            lable="Comfirm Password"
+            value=""
+            onchange={() => {}}
+            placeHolder=""
+          />
+          <ButtonUI loading={false} label="Register" onClick={() => {}} />
           <Box width="fit">
             <chakra.div
               display="flex"
@@ -202,7 +205,7 @@ const Signup: NextPage = () => {
             </Box>
           </Box>
         </chakra.div>
-      </chakra.form>
+      </chakra.div>
     </main>
   );
 };
