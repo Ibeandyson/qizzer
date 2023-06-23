@@ -1,8 +1,10 @@
-const CartCircleIcon = () => {
+import {FC} from "react"
+
+const CartCircleIcon: FC = () => {
   return (
     <svg width="70" height="70" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g filter="url(#filter0_f_1701_1880)">
-        <ellipse cx="44.0771" cy="44.0769" rx="41.0771" ry="41.0769" fill="#267AC8" fill-opacity="0.2" />
+        <ellipse cx="44.0771" cy="44.0769" rx="41.0771" ry="41.0769" fill="#267AC8" fillOpacity="0.2" />
       </g>
       <ellipse cx="44.0771" cy="44.076" rx="27.3847" ry="27.3846" fill="#267AC8" />
       <path
@@ -17,8 +19,8 @@ const CartCircleIcon = () => {
           width="87.1333"
           height="87.1314"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB">
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          colorInterpolationFilters="sRGB">
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
           <feGaussianBlur stdDeviation="1.24476" result="effect1_foregroundBlur_1701_1880" />
         </filter>

@@ -3,6 +3,7 @@
   "plugins": [],
   "rules": {
     "quotes": "off",
+    "double-quoted":"off",
     "@typescript-eslint/quotes": "off",
     "react/react-in-jsx-scope": "off",
     "lines-around-directive": "off",
@@ -25,6 +26,21 @@
     "@typescript-eslint/object-curly-spacing": "off",
     "arrow-body-style": "off",
     "no-trailing-spaces": "off",
+    "react/require-default-props": "off",
+    "react/jsx-closing-bracket-location": "off",
+    "react/function-component-definition": "off",
+    "import/newline-after-import": "off",
+    "react/jsx-props-no-multi-spaces": "off",
+    "jsx-quotes":"off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "object-shorthand": "off",
+    "react/jsx-no-useless-frag": "off",
+    "react/no-unescaped-entities": "off",
+    "import/order": "off",
+    "react/no-unused-prop-types": "off",
+    "react/jsx-tag-spacing": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "max-len": "off"
   },
   "parserOptions": {
     "project": "./tsconfig.json"
