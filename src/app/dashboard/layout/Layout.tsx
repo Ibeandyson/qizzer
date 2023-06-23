@@ -18,17 +18,7 @@ function Layout({children}: Props) {
       <chakra.div pl={{lg: '200px'}}>
         <NavBar onOpen={onOpen} />
         <Container maxW="1050px">
-          <chakra.div
-            bg="white"
-            ml={{base: '0', lg: '10px'}}
-            p={{base: '5px', lg: '20px'}}
-            boxShadow={{base: 'none', md: 'md'}}
-            width="100%"
-            height="75vh"
-            mt="30px"
-            zIndex="1">
-            {children}
-          </chakra.div>
+          <chakra.div mt="20px" ml={{base: '0', lg: '10px'}}>{children}</chakra.div>
         </Container>
       </chakra.div>
     </chakra.main>
