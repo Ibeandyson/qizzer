@@ -1,4 +1,6 @@
-const NairaCircleIcon = () => {
+import {FC} from "react"
+
+const NairaCircleIcon: FC = () => {
   return (
     <svg width="70" height="70" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g filter="url(#filter0_f_1701_913)">
@@ -15,8 +17,8 @@ const NairaCircleIcon = () => {
           width="87.1333"
           height="87.1314"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB">
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          colorInterpolationFilters="sRGB">
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
           <feGaussianBlur stdDeviation="1.24476" result="effect1_foregroundBlur_1701_913" />
         </filter>

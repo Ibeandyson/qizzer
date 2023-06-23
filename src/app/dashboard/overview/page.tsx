@@ -26,61 +26,6 @@ import RectangleShapeIcon from '@/components/SVG-Icons/RectangleShapeIcon';
 import Chart from 'react-apexcharts';
 import FilterButton from '@/components/ReuseableComponents/FilterButton';
 
-const data = {
-  options: {
-    tooltip: {
-      enabled: true,
-      y: {
-        formatter: function () {
-          return ''; // Return an empty string to hide the percentage values
-        },
-      },
-    },
-    chart: {
-      stroke: {
-        color: 'red',
-      },
-      toolbar: {
-        show: false,
-      },
-      id: 'basic-bar',
-    },
-    xaxis: {
-      categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
-    },
-  },
-  series: [
-    {
-      strokeColor: 'black',
-      name: 'sales',
-      data: [10, 40, 45, 20, 49, 40, 70, 21, 30],
-    },
-    {
-      name: 'orders',
-      data: [30, 40, 45, 50, 49, 60, 70, 91, 10],
-    },
-  ],
-};
-const donutOptions = {
-  chartOptions: {
-    labels: ['Apple', 'Orange', 'Banana'],
-    dataLabels: {
-      enabled: false,
-      formatter: function (val: any, opts: any) {
-        const percent = opts.w.globals.seriesPercent[opts.seriesIndex];
-        return `${val} (${percent.toFixed(0)}%)`;
-      },
-    },
-  },
-  plotOptions: {
-    pie: {
-      donut: {
-        size: '40%',
-      },
-      customScale: 1.1,
-    },
-  },
-};
 
 export default function Dashboard() {
   const [viewSate, setViewState] = useState(false);
@@ -134,7 +79,7 @@ export default function Dashboard() {
           )}
         </chakra.div>
         {viewSate && (
-          <>
+          <chakra.div>
             <Grid templateColumns={['1fr', '1fr', 'repeat(3, 1fr)']} gap={4} mt={{base: '-55px', md: '20px'}}>
               <GridItem colSpan={{base: 0, md: 2}}>
                 <chakra.div bg="white" p={{base: '5px', lg: '20px'}} boxShadow="base" width="100%" height="320px" zIndex="1">
@@ -146,7 +91,7 @@ export default function Dashboard() {
                       </Text>
                     </Box>
                   </Flex>
-                  <Chart options={data.options} series={data.series} type="bar" width="100%" height={200} />
+                  {/* <Chart options={data.options} series={data.series} type="bar" width="100%" height={200} /> */}
                 </chakra.div>
               </GridItem>
               <GridItem>
@@ -160,12 +105,12 @@ export default function Dashboard() {
                     </Box>
                   </Flex>
                   <chakra.div mt="40px">
-                    <Chart options={donutOptions} series={[5, 10, 50]} type="donut" width="100%" height="200px" />
+                    {/* <Chart options={donutOptions} series={[5, 10, 50]} type="donut" width="100%" height="200px" /> */}
                   </chakra.div>
                 </chakra.div>
               </GridItem>
             </Grid>
-          </>
+          </chakra.div>
         )}
 
         {!viewSate ? (
