@@ -33,7 +33,7 @@ function SignUPForm() {
         </Text>
         <InputUI type="email" style={{marginBottom: '40px', marginTop: '20px'}} lable="Email" value="" onchange={() => {}} placeHolder="" />
         <InputUI type="password" style={{marginBottom: '40px', marginTop: '20px'}} lable="Password" value="" onchange={() => {}} placeHolder="" />
-        <ButtonUI label="Login" onClick={() => {}} />
+        <ButtonUI  label="Login" onClick={() => {}} />
         <Text fontSize="14px" fontWeight="400" textAlign="center" lineHeight="16.8px" my="15px">
           Can’t remember your password?
           <span style={{color: 'purple', fontWeight: '500', marginLeft: '5px', cursor: "pointer"}}><Link href={'/auth/forgot-password'}>Reset Password</Link></span>

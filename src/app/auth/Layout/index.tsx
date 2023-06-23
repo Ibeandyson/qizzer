@@ -15,7 +15,9 @@ function AuthLayout({children}: Props) {
         <GridItem w="100%">
           <Flex
             bg="#FFFBF5"
-            position="fixed"
+            position="sticky"
+            top={0}
+            left={0}
             minHeight="100vh"
             display={{base: 'none', md: 'none', lg: 'block'}}
             maxW="720px"
