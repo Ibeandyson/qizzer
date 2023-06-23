@@ -23,9 +23,84 @@ import NairaCircleIcon from '@/components/SVG-Icons/NairaCircleIcon';
 import CartCircleIcon from '@/components/SVG-Icons/CartCircleIcon';
 import BagCircleIcon from '@/components/SVG-Icons/BagCircleIcon';
 import RectangleShapeIcon from '@/components/SVG-Icons/RectangleShapeIcon';
-import Chart from 'react-apexcharts';
 import FilterButton from '@/components/ReuseableComponents/FilterButton';
+import {Chart as ChartJS, ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement} from 'chart.js';
+import {Doughnut, Bar} from 'react-chartjs-2';
 
+ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement, Tooltip, Legend);
+const data = {
+  labels: ['Delivered', 'Pending', 'Cancelled'],
+  datasets: [
+    {
+      label: 'Orders',
+      data: [12, 29, 40],
+      backgroundColor: ['#26C62C', '#FFD923', '#EC0303'],
+    },
+  ],
+};
+
+const options1 = {
+  layout: {
+    padding: {
+      top: 0,
+      right: 5,
+      bottom: 50,
+      left: 5,
+    },
+  },
+  legend: {
+    position: 'bottom',
+    labels: {
+      fontColor: 'red',
+    },
+  },
+};
+
+const options = {
+  scales: {
+    y: {
+      beginAtZero: true,
+      max: 100, // Set the maximum value on the y-axis
+    },
+    x: {
+      grid: {
+        display: false, // Hide the x-axis grid lines
+      },
+    },
+  },
+  maintainAspectRatio: false,
+  layout: {
+    padding: {
+      top: 0,
+      right: 5,
+      bottom: 50,
+      left: 5,
+    },
+  },
+  responsive: true,
+  plugins: {
+    legend: {
+      position: 'bottom' as const,
+      width: '30px',
+    },
+  },
+};
+
+const dataBar = {
+  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+  datasets: [
+    {
+      label: 'Sales',
+      data: [20, 30, 80, 40, 20, 46, 36, 70, 67, 63, 70, 30],
+      backgroundColor: '#4E3391',
+    },
+    {
+      label: 'Orders',
+      data: [20, 60, 60, 40, 20, 46, 86, 40, 37, 73, 40, 20],
+      backgroundColor: '#E9E6F1',
+    },
+  ],
+};
 
 export default function Dashboard() {
   const [viewSate, setViewState] = useState(false);
@@ -82,7 +157,7 @@ export default function Dashboard() {
           <chakra.div>
             <Grid templateColumns={['1fr', '1fr', 'repeat(3, 1fr)']} gap={4} mt={{base: '-55px', md: '20px'}}>
               <GridItem colSpan={{base: 0, md: 2}}>
-                <chakra.div bg="white" p={{base: '5px', lg: '20px'}} boxShadow="base" width="100%" height="320px" zIndex="1">
+                <chakra.div bg="white" p={{base: '5px', lg: '20px'}} boxShadow="base" width="100%" height="400px" zIndex="1">
                   <Flex mb="15px">
                     <Box display="flex" alignItems="center" justifyContent="center">
                       <RectangleShapeIcon />
@@ -91,11 +166,11 @@ export default function Dashboard() {
                       </Text>
                     </Box>
                   </Flex>
-                  {/* <Chart options={data.options} series={data.series} type="bar" width="100%" height={200} /> */}
+                  <Bar options={options} data={dataBar} />
                 </chakra.div>
               </GridItem>
               <GridItem>
-                <chakra.div bg="white" p={{base: '5px', lg: '20px'}} boxShadow="base" width="100%" height="320px" zIndex="1">
+                <chakra.div bg="white" p={{base: '5px', lg: '20px'}} boxShadow="base" width="100%" height="400px" zIndex="1">
                   <Flex mb="15px">
                     <Box display="flex" alignItems="center" justifyContent="center">
                       <RectangleShapeIcon />
@@ -104,8 +179,8 @@ export default function Dashboard() {
                       </Text>
                     </Box>
                   </Flex>
-                  <chakra.div mt="40px">
-                    {/* <Chart options={donutOptions} series={[5, 10, 50]} type="donut" width="100%" height="200px" /> */}
+                  <chakra.div>
+                    <Doughnut data={data} options={options1} />
                   </chakra.div>
                 </chakra.div>
               </GridItem>
