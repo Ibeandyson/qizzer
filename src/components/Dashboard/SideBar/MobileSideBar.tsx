@@ -46,9 +46,9 @@ function MobileSideBar({ open, onClose }: Props) {
               MENU
             </chakra.p>
             <chakra.div mt="30px">
-              <Tab Icon={DashboardIcon} label="Dashboard" path="/dashboard" />
+              <Tab Icon={DashboardIcon} label="Dashboard" path="/dashboard/overview" />
               <MultiTabs />
-              <Tab Icon={OrdersIcon} label="Orders" path="/orders" />
+              <Tab Icon={OrdersIcon} label="Orders" path="/dashboard/orders" />
               <Tab Icon={LogisticsIcon} label="Logistics" path="/logistics" />
               <chakra.div
                 w="full"
