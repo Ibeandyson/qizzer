@@ -26,10 +26,10 @@ function DesktopSideBar() {
           MENU
         </chakra.p>
         <chakra.div ml="-20px" mt="10px">
-          <Tab Icon={DashboardIcon} label="Dashboard" path="/dashboard" />
+          <Tab Icon={DashboardIcon} label="Dashboard" path="/dashboard/overview" />
           <MultiTabs />
-          <Tab Icon={OrdersIcon} label="Orders" path="/orders" />
-          <Tab Icon={LogisticsIcon} label="Logistics" path="/logistics" />
+          <Tab Icon={OrdersIcon} label="Orders" path="/dashboard/orders" />
+          <Tab Icon={LogisticsIcon} label="Logistics" path="/dashboard/logistics" />
           <chakra.div w="full" h="0px" border="0.5px solid #D7D7D7" mt="20px" />
           <Tab Icon={PrivacyIcon} label="Privacy" path="/privacy" />
           <Tab Icon={SettingsIcon} label="Settings" path="/settings" />
