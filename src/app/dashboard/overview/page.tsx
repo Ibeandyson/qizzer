@@ -1,5 +1,5 @@
-'use client';
-import {useState} from 'react';
+"use client";
+import { useState } from "react";
 import {
   chakra,
   Box,
@@ -17,24 +17,39 @@ import {
   Tr,
   Td,
   Th,
-} from '@chakra-ui/react';
-import OverviewCards from '@/components/Dashboard/OverviewCards';
-import NairaCircleIcon from '@/components/SVG-Icons/NairaCircleIcon';
-import CartCircleIcon from '@/components/SVG-Icons/CartCircleIcon';
-import BagCircleIcon from '@/components/SVG-Icons/BagCircleIcon';
-import RectangleShapeIcon from '@/components/SVG-Icons/RectangleShapeIcon';
-import FilterButton from '@/components/ReuseableComponents/FilterButton';
-import {Chart as ChartJS, ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement} from 'chart.js';
-import {Doughnut, Bar} from 'react-chartjs-2';
+} from "@chakra-ui/react";
+import OverviewCards from "@/components/Dashboard/OverviewCards";
+import NairaCircleIcon from "@/components/SVG-Icons/NairaCircleIcon";
+import CartCircleIcon from "@/components/SVG-Icons/CartCircleIcon";
+import BagCircleIcon from "@/components/SVG-Icons/BagCircleIcon";
+import RectangleShapeIcon from "@/components/SVG-Icons/RectangleShapeIcon";
+import FilterButton from "@/components/ReuseableComponents/FilterButton";
+import {
+  Chart as ChartJS,
+  ArcElement,
+  Tooltip,
+  Legend,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+} from "chart.js";
+import { Doughnut, Bar } from "react-chartjs-2";
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement, Tooltip, Legend);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  ArcElement,
+  Tooltip,
+  Legend
+);
 const data = {
-  labels: ['Delivered', 'Pending', 'Cancelled'],
+  labels: ["Delivered", "Pending", "Cancelled"],
   datasets: [
     {
-      label: 'Orders',
+      label: "Orders",
       data: [12, 29, 40],
-      backgroundColor: ['#26C62C', '#FFD923', '#EC0303'],
+      backgroundColor: ["#26C62C", "#FFD923", "#EC0303"],
     },
   ],
 };
@@ -49,9 +64,9 @@ const options1 = {
     },
   },
   legend: {
-    position: 'bottom',
+    position: "bottom",
     labels: {
-      fontColor: 'red',
+      fontColor: "red",
     },
   },
 };
@@ -80,24 +95,37 @@ const options = {
   responsive: true,
   plugins: {
     legend: {
-      position: 'bottom' as const,
-      width: '30px',
+      position: "bottom" as const,
+      width: "30px",
     },
   },
 };
 
 const dataBar = {
-  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+  labels: [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ],
   datasets: [
     {
-      label: 'Sales',
+      label: "Sales",
       data: [20, 30, 80, 40, 20, 46, 36, 70, 67, 63, 70, 30],
-      backgroundColor: '#4E3391',
+      backgroundColor: "#4E3391",
     },
     {
-      label: 'Orders',
+      label: "Orders",
       data: [20, 60, 60, 40, 20, 46, 86, 40, 37, 73, 40, 20],
-      backgroundColor: '#E9E6F1',
+      backgroundColor: "#E9E6F1",
     },
   ],
 };
@@ -107,7 +135,14 @@ export default function Dashboard() {
   return (
     <chakra.div>
       <section>
-        <chakra.div bg="white" p={{base: '5px', lg: '20px'}} boxShadow={{base: 'none', md: 'base'}} width="100%" height="38vh" zIndex="1">
+        <chakra.div
+          bg="white"
+          p={{ base: "5px", lg: "20px" }}
+          boxShadow={{ base: "none", md: "base" }}
+          width="100%"
+          height="38vh"
+          zIndex="1"
+        >
           <Flex mb="15px">
             <Box display="flex" alignItems="center" justifyContent="center">
               <RectangleShapeIcon />
@@ -118,21 +153,23 @@ export default function Dashboard() {
             <Box ml="auto">
               <ButtonGroup size="sm" isAttached variant="outline">
                 <Button
-                  _hover={{backgroundColor: '#220075', color: 'white'}}
-                  color={viewSate ? 'white' : 'black'}
+                  _hover={{ backgroundColor: "#220075", color: "white" }}
+                  color={viewSate ? "white" : "black"}
                   onClick={() => setViewState(true)}
-                  bg={viewSate ? '#220075' : 'transparent'}
+                  bg={viewSate ? "#220075" : "transparent"}
                   fontSize="10px"
-                  width="70px">
+                  width="70px"
+                >
                   Store
                 </Button>
                 <Button
-                  _hover={{backgroundColor: '#220075', color: 'white'}}
-                  color={!viewSate ? 'white' : 'black'}
+                  _hover={{ backgroundColor: "#220075", color: "white" }}
+                  color={!viewSate ? "white" : "black"}
                   onClick={() => setViewState(false)}
-                  bg={!viewSate ? '#220075' : 'transparent'}
+                  bg={!viewSate ? "#220075" : "transparent"}
                   fontSize="10px"
-                  width="70px">
+                  width="70px"
+                >
                   Individual
                 </Button>
               </ButtonGroup>
@@ -140,28 +177,82 @@ export default function Dashboard() {
           </Flex>
           <Divider mb="40px" orientation="horizontal" />
           {!viewSate ? (
-            <Flex width="100%" overflowY="auto" className="hide-scrollbar" gap={4}>
-              <OverviewCards titel="Wallet Balance" value="N86,650.78" icon={<NairaCircleIcon />} />
-              <OverviewCards titel="Total Orders" value="7" icon={<CartCircleIcon />} />
-              <OverviewCards titel="Comfirmed Orders" value="5" icon={<BagCircleIcon />} />
+            <Flex
+              width="100%"
+              overflowY="auto"
+              className="hide-scrollbar"
+              gap={4}
+            >
+              <OverviewCards
+                titel="Wallet Balance"
+                value="N86,650.78"
+                icon={<NairaCircleIcon />}
+              />
+              <OverviewCards
+                titel="Total Orders"
+                value="7"
+                icon={<CartCircleIcon />}
+              />
+              <OverviewCards
+                titel="Comfirmed Orders"
+                value="5"
+                icon={<BagCircleIcon />}
+              />
             </Flex>
           ) : (
-            <Flex width="100%" overflowY="auto" className="hide-scrollbar" gap={4}>
-              <OverviewCards titel="Wallet Balance" value="N86,650.78" icon={<NairaCircleIcon />} />
-              <OverviewCards titel="Toatal Product" value="5" icon={<BagCircleIcon />} />
-              <OverviewCards titel="Total Orders" value="7" icon={<CartCircleIcon />} />
+            <Flex
+              width="100%"
+              overflowY="auto"
+              className="hide-scrollbar"
+              gap={4}
+            >
+              <OverviewCards
+                titel="Wallet Balance"
+                value="N86,650.78"
+                icon={<NairaCircleIcon />}
+              />
+              <OverviewCards
+                titel="Toatal Product"
+                value="5"
+                icon={<BagCircleIcon />}
+              />
+              <OverviewCards
+                titel="Total Orders"
+                value="7"
+                icon={<CartCircleIcon />}
+              />
             </Flex>
           )}
         </chakra.div>
         {viewSate && (
           <chakra.div>
-            <Grid templateColumns={['1fr', '1fr', 'repeat(3, 1fr)']} gap={4} mt={{base: '-55px', md: '20px'}}>
-              <GridItem colSpan={{base: 0, md: 2}}>
-                <chakra.div bg="white" p={{base: '5px', lg: '20px'}} boxShadow="base" width="100%" height="400px" zIndex="1">
+            <Grid
+              templateColumns={["1fr", "1fr", "repeat(3, 1fr)"]}
+              gap={4}
+              mt={{ base: "-55px", md: "20px" }}
+            >
+              <GridItem colSpan={{ base: 0, md: 2 }}>
+                <chakra.div
+                  bg="white"
+                  p={{ base: "5px", lg: "20px" }}
+                  boxShadow="base"
+                  width="100%"
+                  height="400px"
+                  zIndex="1"
+                >
                   <Flex mb="15px">
-                    <Box display="flex" alignItems="center" justifyContent="center">
+                    <Box
+                      display="flex"
+                      alignItems="center"
+                      justifyContent="center"
+                    >
                       <RectangleShapeIcon />
-                      <Text ml="10px" fontSize="12px" fontWeight={600} color="#121212">
+                      <Text
+                        ml="10px"
+                        fontSize="12px"
+                        fontWeight={600}
+                        color="#121212"
+                      >
                         Sales Statistics
                       </Text>
                     </Box>
@@ -170,11 +261,27 @@ export default function Dashboard() {
                 </chakra.div>
               </GridItem>
               <GridItem>
-                <chakra.div bg="white" p={{base: '5px', lg: '20px'}} boxShadow="base" width="100%" height="400px" zIndex="1">
+                <chakra.div
+                  bg="white"
+                  p={{ base: "5px", lg: "20px" }}
+                  boxShadow="base"
+                  width="100%"
+                  height="400px"
+                  zIndex="1"
+                >
                   <Flex mb="15px">
-                    <Box display="flex" alignItems="center" justifyContent="center">
+                    <Box
+                      display="flex"
+                      alignItems="center"
+                      justifyContent="center"
+                    >
                       <RectangleShapeIcon />
-                      <Text ml="10px" fontSize="12px" fontWeight={600} color="#121212">
+                      <Text
+                        ml="10px"
+                        fontSize="12px"
+                        fontWeight={600}
+                        color="#121212"
+                      >
                         Order Status
                       </Text>
                     </Box>
@@ -191,16 +298,22 @@ export default function Dashboard() {
         {!viewSate ? (
           <chakra.div
             bg="white"
-            p={{base: '5px', lg: '20px'}}
-            boxShadow={{base: 'none', md: 'md'}}
+            p={{ base: "5px", lg: "20px" }}
+            boxShadow={{ base: "none", md: "md" }}
             width="100%"
             height="38vh"
-            mt={{base: '-50px', md: '5px'}}
-            zIndex="1">
+            mt={{ base: "-50px", md: "5px" }}
+            zIndex="1"
+          >
             <Flex mb="15px">
               <Box display="flex" alignItems="center" justifyContent="center">
                 <RectangleShapeIcon />
-                <Text ml="10px" fontSize="12px" fontWeight={600} color="#121212">
+                <Text
+                  ml="10px"
+                  fontSize="12px"
+                  fontWeight={600}
+                  color="#121212"
+                >
                   Orders
                 </Text>
               </Box>
@@ -235,7 +348,8 @@ export default function Dashboard() {
                         fontSize="10px"
                         height="30px"
                         borderRadius="5px"
-                        width="80px">
+                        width="80px"
+                      >
                         View Details
                       </Button>
                     </Td>
@@ -247,16 +361,22 @@ export default function Dashboard() {
         ) : (
           <chakra.div
             bg="white"
-            p={{base: '5px', lg: '20px'}}
-            boxShadow={{base: 'none', md: 'md'}}
+            p={{ base: "5px", lg: "20px" }}
+            boxShadow={{ base: "none", md: "md" }}
             width="100%"
             height="38vh"
-            mt={{base: '20px', md: '5px'}}
-            zIndex="1">
+            mt={{ base: "20px", md: "5px" }}
+            zIndex="1"
+          >
             <Flex mb="15px">
               <Box display="flex" alignItems="center" justifyContent="center">
                 <RectangleShapeIcon />
-                <Text ml="10px" fontSize="12px" fontWeight={600} color="#121212">
+                <Text
+                  ml="10px"
+                  fontSize="12px"
+                  fontWeight={600}
+                  color="#121212"
+                >
                   Orders
                 </Text>
               </Box>
@@ -269,7 +389,7 @@ export default function Dashboard() {
                 <Thead>
                   <Tr fontSize="5px" color="black">
                     <Th>S/N</Th>
-                    <Th>Customer's Name</Th>
+                    <Th>Customer&apos;s Name</Th>
                     <Th>Date</Th>
                     <Th>Amount</Th>
                     <Th>Status</Th>
@@ -291,7 +411,8 @@ export default function Dashboard() {
                         fontSize="10px"
                         height="30px"
                         borderRadius="5px"
-                        width="80px">
+                        width="80px"
+                      >
                         View Details
                       </Button>
                     </Td>

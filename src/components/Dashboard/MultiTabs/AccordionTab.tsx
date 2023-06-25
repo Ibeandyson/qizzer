@@ -5,6 +5,7 @@ import {
   AccordionPanel,
   chakra,
 } from "@chakra-ui/react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 type Props = {
@@ -20,7 +21,7 @@ type Props = {
 
 function AccordionTab({ data: { label, Icon, subTabs } }: Props) {
   const [active, setActive] = useState<boolean>(false);
-
+  const router = useRouter();
   return (
     <AccordionItem border="none">
       {({ isExpanded }) => (
@@ -53,8 +54,9 @@ function AccordionTab({ data: { label, Icon, subTabs } }: Props) {
             <DropDownIcon rotate={isExpanded} />
           </AccordionButton>
           <AccordionPanel bg="#fff" borderBottom={0} py="10px">
-            {subTabs.map(({ subLabel }, id) => (
+            {subTabs.map(({ subLabel, path }, id) => (
               <chakra.div
+                onClick={() => router.push(path)}
                 key={id}
                 h="38px"
                 display="flex"
