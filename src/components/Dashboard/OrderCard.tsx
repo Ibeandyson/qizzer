@@ -4,13 +4,13 @@ import CircleArrowIcon from '../SVG-Icons/CircleArrowIcon';
 import Link from 'next/link';
 
 interface Props {
-  icon: ReactElement;
   titel: string;
   value: string;
-  linkPath?: string;
+  onClick: () => void;
+  iconeColor?: string
 }
 
-const OverviewCards: FC<Props> = ({icon, titel, value}) => {
+const OrderCard: FC<Props> = ({onClick, titel, value, iconeColor}) => {
   return (
     <Box
       display="flex"
@@ -21,19 +21,18 @@ const OverviewCards: FC<Props> = ({icon, titel, value}) => {
       p="10px"
       width="330px"
       height="120px">
-      <Flex gap={8}>
-        <chakra.div>{icon}</chakra.div>
-        <chakra.div width="100px" >
+      <Flex gap={120}>
+        <chakra.div justifyContent="start" alignItems="start" display="block" width="100px">
           <Text mt="8px" fontSize="10px" color="#7A7A7A">
             {titel}
           </Text>
-          <Text mt="10px" fontSize="17px" fontWeight={600} color="#1E1E1E">
+          <Text mt="10px" fontSize="20px" fontWeight={600} color="#1E1E1E">
             {value}
           </Text>
         </chakra.div>
         <chakra.div mt="20px">
-          <Link href="">
-            <CircleArrowIcon/>
+          <Link href="" onClick={onClick}>
+            <CircleArrowIcon color={iconeColor} />
           </Link>
         </chakra.div>
       </Flex>
@@ -41,4 +40,4 @@ const OverviewCards: FC<Props> = ({icon, titel, value}) => {
   );
 };
 
-export default OverviewCards;
+export default OrderCard;
