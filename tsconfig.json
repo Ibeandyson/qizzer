@@ -29,7 +29,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "lint-staged.config.js",
-    "src/components/Dashboard/MultiTabs"
-, "src/app/auth/Layout/index.tsx"  ],
+    "src/components/Dashboard/MultiTabs",
+    "src/app/auth/Layout/index.tsx"
+  ],
   "exclude": ["node_modules"]
 }

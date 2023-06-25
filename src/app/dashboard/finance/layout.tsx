@@ -3,7 +3,7 @@ import Layout from "@/app/dashboard/layout/Layout";
 import Providers from "../../providers";
 
 export const metadata = {
-  title: "Dashboard",
+  title: "Finance",
   description: "",
 };
 

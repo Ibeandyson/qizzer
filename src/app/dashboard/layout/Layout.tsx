@@ -1,25 +1,32 @@
-'use client';
+"use client";
 
-import {chakra, useDisclosure, Container} from '@chakra-ui/react';
-import {ReactNode} from 'react';
-import SideBar from '../../../components/Dashboard/SideBar';
-import NavBar from '../../../components/Dashboard/NavBar';
+import { chakra, useDisclosure } from "@chakra-ui/react";
+import { ReactNode } from "react";
+import SideBar from "../../../components/Dashboard/SideBar";
+import NavBar from "../../../components/Dashboard/NavBar";
 
 type Props = {
   children: ReactNode;
 };
 
-function Layout({children}: Props) {
-  const {isOpen, onOpen, onClose} = useDisclosure();
+function Layout({ children }: Props) {
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <chakra.main>
       <SideBar isOpen={isOpen} onClose={onClose} />
-      <chakra.div pl={{lg: '200px'}}>
+      <chakra.div pl={{ lg: "200px" }}>
         <NavBar onOpen={onOpen} />
-        <Container maxW="1050px">
-          <chakra.div mt="20px" ml={{base: '0', lg: '10px'}}>{children}</chakra.div>
-        </Container>
+        <chakra.div
+          bg="white"
+          p={{ base: "24px", lg: "40px" }}
+          width="100%"
+          height="75vh"
+          zIndex="1"
+          pb="20px"
+        >
+          {children}
+        </chakra.div>
       </chakra.div>
     </chakra.main>
   );
