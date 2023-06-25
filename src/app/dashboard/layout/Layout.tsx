@@ -1,6 +1,6 @@
 "use client";
 
-import { chakra, useDisclosure, Container } from "@chakra-ui/react";
+import { chakra, useDisclosure } from "@chakra-ui/react";
 import { ReactNode } from "react";
 import SideBar from "../../../components/Dashboard/SideBar";
 import NavBar from "../../../components/Dashboard/NavBar";
@@ -19,11 +19,11 @@ function Layout({ children }: Props) {
         <NavBar onOpen={onOpen} />
         <chakra.div
           bg="white"
-          ml={{ base: "0", lg: "10px" }}
-          p={{ base: "5px", lg: "40px" }}
+          p={{ base: "24px", lg: "40px" }}
           width="100%"
           height="75vh"
           zIndex="1"
+          pb="20px"
         >
           {children}
         </chakra.div>
