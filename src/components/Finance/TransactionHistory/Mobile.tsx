@@ -7,7 +7,7 @@ type Props = {};
 
 function Mobile({}: Props) {
   return (
-    <>
+    <chakra.div display={{ base: "block", lg: "none" }}>
       <chakra.div
         display="flex"
         justifyContent="space-between"
@@ -30,7 +30,7 @@ function Mobile({}: Props) {
             display="flex"
             justifyContent="space-between"
             alignItems="center"
-            my="20px"
+            my="24px"
             px="10px"
             _hover={{ border: "1px solid #220075" }}
           >
@@ -48,19 +48,23 @@ function Mobile({}: Props) {
               </chakra.div>
               <chakra.div>
                 <chakra.p fontSize="12px" fontWeight="500" color="#333333">
-                  Deposit
+                  {i % 2 == 0 ? "Deposit" : "Transfer"}
                 </chakra.p>
                 <chakra.p fontSize="10px" color="#333333">
                   2 mins ago
                 </chakra.p>
               </chakra.div>
             </chakra.div>
-            <chakra.p color="#26C62C" fontSize="12px">
-              +$100.00
+            <chakra.p
+              color={i % 2 == 0 ? "#26C62C" : "#EC0303"}
+              fontSize="12px"
+            >
+              {i % 2 == 0 ? "+" : "-"}
+              $100.00
             </chakra.p>
           </chakra.div>
         ))}
-    </>
+    </chakra.div>
   );
 }
 
