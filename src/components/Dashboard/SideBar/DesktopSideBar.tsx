@@ -6,6 +6,7 @@ import OrdersIcon from "../../SVG-Icons/OrdersIcon";
 import LogisticsIcon from "../../SVG-Icons/LogisticsIcon";
 import PrivacyIcon from "../../SVG-Icons/PrivacyIcon";
 import SettingsIcon from "../../SVG-Icons/SettingsIcon";
+import FinanceIcon from "@/components/SVG-Icons/FinanceIcon";
 
 function DesktopSideBar() {
   return (
@@ -33,10 +34,21 @@ function DesktopSideBar() {
           MENU
         </chakra.p>
         <chakra.div mt="10px">
-          <Tab Icon={DashboardIcon} label="Dashboard" path="/dashboard" />
+          <Tab
+            Icon={DashboardIcon}
+            label="Dashboard"
+            path="/dashboard/overview"
+          />
+          <Tab Icon={FinanceIcon} label="Finance" path="/dashboard/finance" />
+
           <MultiTabs />
+
           <Tab Icon={OrdersIcon} label="Orders" path="/dashboard/orders" />
-          <Tab Icon={LogisticsIcon} label="Logistics" path="/dashboard/logistics" />
+          <Tab
+            Icon={LogisticsIcon}
+            label="Logistics"
+            path="/dashboard/logistics"
+          />
           <chakra.div w="full" h="0px" border="0.5px solid #D7D7D7" mt="20px" />
           <Tab Icon={PrivacyIcon} label="Privacy" path="/privacy" />
           <Tab Icon={SettingsIcon} label="Settings" path="/settings" />

@@ -4,6 +4,7 @@ import { chakra, useDisclosure } from "@chakra-ui/react";
 import { ReactNode } from "react";
 import SideBar from "../../../components/Dashboard/SideBar";
 import NavBar from "../../../components/Dashboard/NavBar";
+import SuccessfulModal from "@/components/Modals/SuccessfulModal";
 
 type Props = {
   children: ReactNode;
@@ -28,6 +29,7 @@ function Layout({ children }: Props) {
           {children}
         </chakra.div>
       </chakra.div>
+      <SuccessfulModal />
     </chakra.main>
   );
 }

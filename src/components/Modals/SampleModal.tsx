@@ -1,6 +1,6 @@
 import React from "react";
 import ModalUI from ".";
-import ButtonUI from "../ButtonUI";
+import ButtonUI from "../ReuseableComponents/ButtonUI";
 
 type Props = {
   isOpen: boolean;
