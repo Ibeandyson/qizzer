@@ -17,6 +17,7 @@ import GetHelpIcon from "@/components/SVG-Icons/GetHelpIcon";
 import LogoutIcon from "@/components/SVG-Icons/LogoutIcon";
 import MultiTabs from "../MultiTabs";
 import Tab from "../Tab";
+import FinanceIcon from "@/components/SVG-Icons/FinanceIcon";
 
 type Props = {
   open: boolean;
@@ -46,7 +47,17 @@ function MobileSideBar({ open, onClose }: Props) {
               MENU
             </chakra.p>
             <chakra.div mt="30px">
-              <Tab Icon={DashboardIcon} label="Dashboard" path="/dashboard/overview" />
+              <Tab
+                Icon={DashboardIcon}
+                label="Dashboard"
+                path="/dashboard/overview"
+              />
+              <Tab
+                Icon={FinanceIcon}
+                label="Finance"
+                path="/dashboard/finance"
+              />
+
               <MultiTabs />
               <Tab Icon={OrdersIcon} label="Orders" path="/dashboard/orders" />
               <Tab Icon={LogisticsIcon} label="Logistics" path="/logistics" />
