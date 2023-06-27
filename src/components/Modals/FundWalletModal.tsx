@@ -12,10 +12,10 @@ type Props = {
   onClose: () => void;
 };
 
-function TransferModal({ isOpen, onClose }: Props) {
+function FundWalletModal({ isOpen, onClose }: Props) {
   const dispatch = useDispatch();
 
-  const [formStep, setFormStep] = useState<"amount" | "tag" | "pin">("amount");
+  const [formStep, setFormStep] = useState<"amount" | "pin">("amount");
   const [formData, setFormData] = useState({
     amount: "",
     recipientPayTag: "",
@@ -31,19 +31,15 @@ function TransferModal({ isOpen, onClose }: Props) {
     switch (formStep) {
       case "amount":
         return {
-          title: "Transfer to Paddi account",
-          description: "Enter the  amount you would like to transfer",
+          title: "Fund your Paddi Wallet",
+          description:
+            "Enter the amount you would like to fund your wallet with.",
         };
 
-      case "tag":
-        return {
-          title: "Transfer to Paddi account",
-          description: "Enter recipient pay tag",
-        };
       case "pin":
         return {
           title: "Enter Wallet Pin",
-          description: "Enter your wallet pin to authorize this transaction",
+          description: "Enter your wallet pin to transfer to victoryroberts",
         };
 
       default:
@@ -76,42 +72,20 @@ function TransferModal({ isOpen, onClose }: Props) {
           <chakra.div display="grid" gap="20px">
             <InputUI
               type="text"
-              lable="Current balance"
+              lable="Amount to fund(minimum of 2000)"
               name="amount"
               value={formData.amount}
-              onchange={handleChange}
-            />
-            <InputUI
-              type="text"
-              lable="Amount to transfer(minimum of 2000)"
-              name="amount"
-              value={formData.amount}
-              onchange={handleChange}
-            />
-            <ButtonUI
-              label="Continue"
-              loading={false}
-              onClick={() => setFormStep("tag")}
-            />
-          </chakra.div>
-        ) : null}
-        {formStep === "tag" ? (
-          <chakra.div display="grid" gap="20px">
-            <InputUI
-              type="text"
-              lable="Recipient pay tag"
-              name="amount"
-              value={formData.recipientPayTag}
               onchange={handleChange}
             />
 
             <ButtonUI
-              label="Continue"
+              label="Fund Wallet"
               loading={false}
               onClick={() => setFormStep("pin")}
             />
           </chakra.div>
         ) : null}
+
         {formStep === "pin" ? (
           <chakra.div display="grid" gap="20px">
             <HStack mx="auto">
@@ -134,4 +108,4 @@ function TransferModal({ isOpen, onClose }: Props) {
   );
 }
 
-export default TransferModal;
+export default FundWalletModal;

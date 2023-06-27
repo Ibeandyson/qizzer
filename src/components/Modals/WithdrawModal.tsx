@@ -12,10 +12,10 @@ type Props = {
   onClose: () => void;
 };
 
-function TransferModal({ isOpen, onClose }: Props) {
+function WithdrawModal({ isOpen, onClose }: Props) {
   const dispatch = useDispatch();
 
-  const [formStep, setFormStep] = useState<"amount" | "tag" | "pin">("amount");
+  const [formStep, setFormStep] = useState<"amount" | "bank" | "pin">("amount");
   const [formData, setFormData] = useState({
     amount: "",
     recipientPayTag: "",
@@ -31,19 +31,19 @@ function TransferModal({ isOpen, onClose }: Props) {
     switch (formStep) {
       case "amount":
         return {
-          title: "Transfer to Paddi account",
-          description: "Enter the  amount you would like to transfer",
+          title: "Available balance",
+          description: "Provide valid bank account details",
         };
 
-      case "tag":
+      case "bank":
         return {
-          title: "Transfer to Paddi account",
-          description: "Enter recipient pay tag",
+          title: "Collect your money",
+          description: "Provide valid bank account details",
         };
       case "pin":
         return {
           title: "Enter Wallet Pin",
-          description: "Enter your wallet pin to authorize this transaction",
+          description: "Enter your wallet pin to withdraw to your local bank",
         };
 
       default:
@@ -91,15 +91,29 @@ function TransferModal({ isOpen, onClose }: Props) {
             <ButtonUI
               label="Continue"
               loading={false}
-              onClick={() => setFormStep("tag")}
+              onClick={() => setFormStep("bank")}
             />
           </chakra.div>
         ) : null}
-        {formStep === "tag" ? (
+        {formStep === "bank" ? (
           <chakra.div display="grid" gap="20px">
             <InputUI
               type="text"
               lable="Recipient pay tag"
+              name="amount"
+              value={formData.recipientPayTag}
+              onchange={handleChange}
+            />
+            <InputUI
+              type="text"
+              lable="Account Name"
+              name="amount"
+              value={formData.recipientPayTag}
+              onchange={handleChange}
+            />
+            <InputUI
+              type="text"
+              lable="Account Number"
               name="amount"
               value={formData.recipientPayTag}
               onchange={handleChange}
@@ -134,4 +148,4 @@ function TransferModal({ isOpen, onClose }: Props) {
   );
 }
 
-export default TransferModal;
+export default WithdrawModal;

@@ -16,11 +16,15 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import TransferModal from "@/components/Modals/TransferModal";
+import WithdrawModal from "@/components/Modals/WithdrawModal";
+import FundWalletModal from "@/components/Modals/FundWalletModal";
 
 type Props = {};
 
 function Wallet({}: Props) {
   const transferModal = useDisclosure();
+  const withdrawModal = useDisclosure();
+  const fundWalletModal = useDisclosure();
 
   const [activeTab, setActiveTab] = useState({
     transfer: false,
@@ -35,6 +39,24 @@ function Wallet({}: Props) {
       withdraw: false,
     });
     transferModal.onOpen();
+  };
+
+  const handleWithdraw = () => {
+    setActiveTab({
+      transfer: false,
+      fundWallet: false,
+      withdraw: true,
+    });
+    withdrawModal.onOpen();
+  };
+
+  const handleFundWallet = () => {
+    setActiveTab({
+      transfer: false,
+      fundWallet: true,
+      withdraw: false,
+    });
+    fundWalletModal.onOpen();
   };
 
   const resetTab = () => {
@@ -216,6 +238,7 @@ function Wallet({}: Props) {
             gap="10px"
             cursor="pointer"
             bg={activeTab.fundWallet ? "#220075" : "#FFF"}
+            onClick={handleFundWallet}
           >
             <chakra.div
               w="48px"
@@ -248,6 +271,7 @@ function Wallet({}: Props) {
             gap="10px"
             cursor="pointer"
             bg={activeTab.withdraw ? "#220075" : "#FFF"}
+            onClick={handleWithdraw}
           >
             <chakra.div
               w="48px"
@@ -306,6 +330,20 @@ function Wallet({}: Props) {
         isOpen={transferModal.isOpen}
         onClose={() => {
           transferModal.onClose();
+          resetTab();
+        }}
+      />
+      <WithdrawModal
+        isOpen={withdrawModal.isOpen}
+        onClose={() => {
+          withdrawModal.onClose();
+          resetTab();
+        }}
+      />
+      <FundWalletModal
+        isOpen={fundWalletModal.isOpen}
+        onClose={() => {
+          fundWalletModal.onClose();
           resetTab();
         }}
       />
