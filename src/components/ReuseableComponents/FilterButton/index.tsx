@@ -1,4 +1,4 @@
-import {Button} from '@chakra-ui/react';
+import { Button } from '@chakra-ui/react';
 const FilterButton = () => {
   return (
     <Button
@@ -16,10 +16,11 @@ const FilterButton = () => {
       fontSize="10px"
       height="30px"
       borderRadius="5px"
-      width="80px">
-      Fiter
+      width="80px"
+    >
+      Filters
     </Button>
   );
 };
 
-export  default FilterButton
+export default FilterButton;
