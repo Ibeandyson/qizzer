@@ -70,15 +70,10 @@ export default function OrdersDetails({ params }: { params: { id: string } }) {
           </Tbody>
         </Table>
       </TableContainer>
-      <Box ml="auto">
-        <Flex mt="30px">
-          <Text fontSize="11px" fontWeight="600">
-            GRAND TOTAL
-          </Text>
-          <Text fontSize="11px" fontWeight="600" pl="15px">
-            N2400
-          </Text>
-        </Flex>
+      <Box mb="30px" p="20px">
+        <Text mt="10px" float="right" fontSize="11px" fontWeight="600">
+          GRAND TOTAL: N2400
+        </Text>
       </Box>
       <Divider mb="40px" mt="30px" orientation="horizontal" />
       <Box border="0.2px solid ">
@@ -109,14 +104,14 @@ export default function OrdersDetails({ params }: { params: { id: string } }) {
               Items Price:<span style={{ fontWeight: 400, paddingLeft: '8px' }}>N00</span>
             </Text>
             <Text fontWeight="600" fontSize="12px" mb="10px">
-            Delivery Fee:<span style={{ fontWeight: 400, paddingLeft: '8px' }}>N00</span> 
+              Delivery Fee:<span style={{ fontWeight: 400, paddingLeft: '8px' }}>N00</span>
             </Text>
             <Text fontWeight="600" fontSize="12px" mb="10px">
               Toatal Fee:<span style={{ fontWeight: 400, paddingLeft: '8px' }}>N00</span>
             </Text>
           </chakra.div>{' '}
         </Box>
-        <Box  w="100%"  border="0.2px solid" ml="auto">
+        <Box w="100%" border="0.2px solid" ml="auto">
           <Text align="center" mt="20px" fontWeight="600" fontSize="13px">
             Delivery Details
           </Text>
@@ -130,6 +125,14 @@ export default function OrdersDetails({ params }: { params: { id: string } }) {
             </Text>
           </chakra.div>
         </Box>
+      </Flex>
+      <Flex mt="30px" mb="30px" justifyContent="center" alignItems="center" gap={5}>
+        <Button w="100%" bg="red" color="white" fontSize="12px">
+          Reject Order
+        </Button>
+        <Button w="100%" bg="green" color="white" fontSize="12px">
+          Comfirm Order
+        </Button>
       </Flex>
     </chakra.div>
   );
