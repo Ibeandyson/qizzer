@@ -1,3 +1,5 @@
+"use client";
+
 import { chakra } from "@chakra-ui/react";
 import MultiTabs from "@/components/Dashboard/MultiTabs";
 import Tab from "../Tab";
