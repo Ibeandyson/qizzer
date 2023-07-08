@@ -29,7 +29,7 @@ function TransactionHistory({}: Props) {
               bg="#220075"
             />
             <chakra.p
-              fontSize={{ base: "16px", lg: "18px" }}
+              fontSize={{ base: "16px", lg: "16px" }}
               fontWeight="500"
               color="#000000"
             >
