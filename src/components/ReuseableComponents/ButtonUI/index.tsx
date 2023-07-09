@@ -7,9 +7,10 @@ type Props = {
   onClick: () => void;
   leftIcon?: ReactElement;
   rightIcon?: ReactElement;
+  w?: string;
 };
 
-function ButtonUI({ label, loading, onClick, leftIcon, rightIcon }: Props) {
+function ButtonUI({ label, loading, onClick, leftIcon, rightIcon, w }: Props) {
   return (
     <Button
       isLoading={loading}
@@ -19,7 +20,8 @@ function ButtonUI({ label, loading, onClick, leftIcon, rightIcon }: Props) {
       rightIcon={rightIcon}
       disabled={loading}
       onClick={onClick}
-      w={{ base: "full" }}
+      w={"full"}
+      maxW={{ base: w ? w : "full" }}
       h={{ base: "40px", lg: "51px" }}
       bg="#220075"
       borderRadius="8px"
