@@ -2,14 +2,14 @@
 
 import React, { useState } from "react";
 
-import { Select, chakra } from "@chakra-ui/react";
+import { chakra } from "@chakra-ui/react";
 import ButtonUI from "@/components/ReuseableComponents/ButtonUI";
 import PlusIcon from "@/components/SVG-Icons/PlusIcon";
 import InputUI from "@/components/ReuseableComponents/InputUI";
 type Props = {};
 
-function ManageStore({}: Props) {
-  const [showStoreForm, setShowStoreForm] = useState<boolean>(false);
+function ManageProducts({}: Props) {
+  const [showProductsForm, setShowProductsForm] = useState<boolean>(false);
 
   return (
     <chakra.div
@@ -39,7 +39,7 @@ function ManageStore({}: Props) {
             fontWeight="500"
             color="#000000"
           >
-            {showStoreForm ? "Create New Store" : "Manage Store"}
+            {showProductsForm ? "Create New Store" : "Manage Products"}
           </chakra.p>
         </chakra.div>
         <chakra.button
@@ -53,7 +53,7 @@ function ManageStore({}: Props) {
           gap="10px"
         ></chakra.button>
       </chakra.div>
-      {!showStoreForm ? (
+      {!showProductsForm ? (
         <chakra.div
           w="full"
           h="500px"
@@ -71,7 +71,7 @@ function ManageStore({}: Props) {
             fontWeight="500"
             color="#1E1E1E"
           >
-            No store created yet.
+            No product added yet.
           </chakra.p>
           <chakra.p
             fontSize={{
@@ -82,47 +82,34 @@ function ManageStore({}: Props) {
             color="#747474"
             mb="20px"
           >
-            Please click the button below to create a store as a seller.
+            Please click the button below to add a product to your store.
           </chakra.p>
           <ButtonUI
             leftIcon={<PlusIcon />}
-            label="Create New Store"
+            label="Add New Product"
             loading={false}
-            onClick={() => setShowStoreForm(true)}
+            onClick={() => setShowProductsForm(true)}
             w="200px"
           />
         </chakra.div>
       ) : (
         <chakra.div>
           <chakra.div
-            mt="30px"
-            display="grid"
-            gap="20px"
-            gridTemplateColumns={{ lg: "repeat(2, 1fr)" }}
+            bg="#D9D9D9"
+            h="100px"
+            w="100px"
+            mx="auto"
+            borderRadius="full"
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            flexDir="column"
           >
-            <InputUI
-              value={""}
-              type="text"
-              lable="Product Name *"
-              name="ProductName"
-              onchange={() => {}}
+            <chakra.img
+              src="/icons/ic_round-cloud-upload.svg"
+              alt="ic_round-cloud-upload"
             />
-            <chakra.div>
-              <chakra.p
-                color="#1E1E1E"
-                fontWeight="500"
-                fontSize={{ base: "14px", lg: "16px" }}
-              >
-                Category *
-              </chakra.p>
-              <Select h="50px" mt="8px" placeholder="Select Category">
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-              </Select>
-            </chakra.div>
+            <chakra.p fontSize="10px">Upload Logo</chakra.p>
           </chakra.div>
           <chakra.div
             mt="30px"
@@ -133,56 +120,48 @@ function ManageStore({}: Props) {
             <InputUI
               value={""}
               type="text"
-              lable="Price (NGN) *"
-              name="price"
+              lable="Store Name *"
+              name="StoreName"
               onchange={() => {}}
-            />{" "}
+            />
             <InputUI
               value={""}
               type="text"
-              lable="Quantity *"
-              name="quantity"
-              onchange={() => {}}
-            />{" "}
-            <InputUI
-              value={""}
-              type="text"
-              lable="Address *"
-              name="Address"
+              lable="Shop address *"
+              name="ShopAddress"
               onchange={() => {}}
             />{" "}
             <InputUI
               value={""}
               type="text"
               lable="City *"
-              name="city"
+              name="City"
               onchange={() => {}}
             />{" "}
             <InputUI
               value={""}
               type="text"
               lable="State *"
-              name="state"
+              name="State"
               onchange={() => {}}
-            />
+            />{" "}
             <InputUI
               value={""}
               type="text"
-              lable="Phone Number *"
-              name="PhoneNumber"
+              lable="Postal Code"
+              name="Postal Code"
+              onchange={() => {}}
+            />{" "}
+            <InputUI
+              value={""}
+              type="text"
+              lable="Account manager phone number *"
+              name="phoneNumber"
               onchange={() => {}}
             />
           </chakra.div>
-          <chakra.div
-            display="flex"
-            justifyContent="end"
-            gap="30px"
-            my="30px"
-          ></chakra.div>
-          <chakra.div display="flex" justifyContent="end" gap="30px" my="30px">
-            <ButtonUI label="Save As Draft" w="163px" onClick={() => {}} />
-
-            <ButtonUI label="Publish Product" w="163px" onClick={() => {}} />
+          <chakra.div display="flex" justifyContent="center" my="30px">
+            <ButtonUI label="Create Store" w="430px" onClick={() => {}} />
           </chakra.div>
         </chakra.div>
       )}
@@ -190,4 +169,4 @@ function ManageStore({}: Props) {
   );
 }
 
-export default ManageStore;
+export default ManageProducts;
