@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 
-import { Select, chakra } from "@chakra-ui/react";
+import { chakra } from "@chakra-ui/react";
 import ButtonUI from "@/components/ReuseableComponents/ButtonUI";
 import PlusIcon from "@/components/SVG-Icons/PlusIcon";
 import InputUI from "@/components/ReuseableComponents/InputUI";
