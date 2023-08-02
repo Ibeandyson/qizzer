@@ -1,3 +1,5 @@
+"use client";
+
 import { chakra } from "@chakra-ui/react";
 import MultiTabs from "@/components/Dashboard/MultiTabs";
 import Tab from "../Tab";
@@ -7,8 +9,10 @@ import LogisticsIcon from "../../SVG-Icons/LogisticsIcon";
 import PrivacyIcon from "../../SVG-Icons/PrivacyIcon";
 import SettingsIcon from "../../SVG-Icons/SettingsIcon";
 import FinanceIcon from "@/components/SVG-Icons/FinanceIcon";
+import useAppRouter from "@/global/hooks/useAppRouter";
 
 function DesktopSideBar() {
+  const { paramsForNavigation } = useAppRouter();
   return (
     <chakra.div
       pos={{ base: "fixed" }}
@@ -43,7 +47,12 @@ function DesktopSideBar() {
 
           <MultiTabs />
 
-          <Tab Icon={OrdersIcon} label="Orders" path="/dashboard/orders" />
+          <Tab
+            Icon={OrdersIcon}
+            label="Orders"
+            path="/dashboard/orders"
+            childPath={[`/dashboard/orders/details/${paramsForNavigation}`]}
+          />
           <Tab
             Icon={LogisticsIcon}
             label="Logistics"

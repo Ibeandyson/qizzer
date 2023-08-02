@@ -2,9 +2,6 @@
 import {useState} from 'react';
 import {chakra, Box, Flex, Text, Divider, ButtonGroup, Button, TableContainer, Table, Thead, Tbody, Tr, Td, Th} from '@chakra-ui/react';
 import OrderCard from '@/components/Dashboard/OrderCard';
-import NairaCircleIcon from '@/components/SVG-Icons/NairaCircleIcon';
-import CartCircleIcon from '@/components/SVG-Icons/CartCircleIcon';
-import BagCircleIcon from '@/components/SVG-Icons/BagCircleIcon';
 import RectangleShapeIcon from '@/components/SVG-Icons/RectangleShapeIcon';
 import FilterButton from '@/components/ReuseableComponents/FilterButton';
 

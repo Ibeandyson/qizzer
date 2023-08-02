@@ -11,11 +11,11 @@ const multiTabsData = [
     subTabs: [
       {
         subLabel: "Manage Products",
-        path: "",
+        path: "/dashboard/manage-products",
       },
       {
         subLabel: "Manage Store",
-        path: "",
+        path: "/dashboard/manage-store",
       },
     ],
   },
