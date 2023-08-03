@@ -7,17 +7,30 @@ import ButtonUI from "@/components/ReuseableComponents/ButtonUI";
 import PlusIcon from "@/components/SVG-Icons/PlusIcon";
 import InputUI from "@/components/ReuseableComponents/InputUI";
 import CreateProduct from "@/components/Store/ManageProducts/CreateProduct";
+import ActionsDropDown, {
+  ActionProps,
+} from "@/components/ReuseableComponents/DropDown";
 type Props = {};
 
 function ManageProducts({}: Props) {
   const [showProductsForm, setShowProductsForm] = useState<boolean>(false);
+
+  const actions: ActionProps[] = [
+    {
+      label: "Add New Product",
+      onAction: () => {
+        setShowProductsForm(true);
+      },
+      Icon: <PlusIcon color="#1E1E1E" />,
+    },
+  ];
 
   return (
     <chakra.div
       w="full"
       minH="50vh"
       bg="#fff"
-      boxShadow="4px 0px 16px 0px rgba(0, 0, 0, 0.08)"
+      boxShadow={{ lg: "4px 0px 16px 0px rgba(0, 0, 0, 0.08)" }}
       borderRadius="4px"
       px={{ lg: "20px" }}
       pb="40px"
@@ -43,20 +56,13 @@ function ManageProducts({}: Props) {
             {showProductsForm ? "Create New Product" : "Manage Products"}
           </chakra.p>
         </chakra.div>
-        <chakra.button
-          w="108px"
-          h="36px"
-          borderRadius="4px"
-          border="1px solid #7A7A7A"
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          gap="10px"
-        ></chakra.button>
+        <ActionsDropDown actions={actions} />
       </chakra.div>
-      {Array(20).fill("").length < 1 ? (
+      {showProductsForm ? (
+        <CreateProduct />
+      ) : (
         <>
-          {!showProductsForm ? (
+          {Array(0).fill("").length < 1 ? (
             <chakra.div
               w="full"
               h="500px"
@@ -96,11 +102,9 @@ function ManageProducts({}: Props) {
               />
             </chakra.div>
           ) : (
-            <CreateProduct />
+            <></>
           )}
         </>
-      ) : (
-        <></>
       )}
     </chakra.div>
   );
