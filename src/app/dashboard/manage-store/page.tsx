@@ -7,10 +7,23 @@ import ButtonUI from "@/components/ReuseableComponents/ButtonUI";
 import PlusIcon from "@/components/SVG-Icons/PlusIcon";
 import InputUI from "@/components/ReuseableComponents/InputUI";
 import CreateStore from "@/components/Store/ManageStore/CreateStore";
+import ActionsDropDown, {
+  ActionProps,
+} from "@/components/ReuseableComponents/DropDown";
 type Props = {};
 
 function ManageStore({}: Props) {
   const [showStoreForm, setShowStoreForm] = useState<boolean>(false);
+
+  const actions: ActionProps[] = [
+    {
+      label: "Create New Store",
+      onAction: () => {
+        setShowStoreForm(true);
+      },
+      Icon: <PlusIcon color="#1E1E1E" />,
+    },
+  ];
 
   return (
     <chakra.div
@@ -43,16 +56,7 @@ function ManageStore({}: Props) {
             {showStoreForm ? "Create New Store" : "Manage Store"}
           </chakra.p>
         </chakra.div>
-        <chakra.button
-          w="108px"
-          h="36px"
-          borderRadius="4px"
-          border="1px solid #7A7A7A"
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          gap="10px"
-        ></chakra.button>
+        <ActionsDropDown actions={actions} />
       </chakra.div>
       <>
         {!showStoreForm ? (
