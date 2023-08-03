@@ -2,6 +2,7 @@ import React from "react";
 import { chakra } from "@chakra-ui/react";
 import ProductsFilterContainer from "./ProductsFilterContainer";
 import ProductCard from "./ProductCard";
+
 type Props = {};
 
 const Products = (props: Props) => {
