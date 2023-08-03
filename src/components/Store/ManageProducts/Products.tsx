@@ -16,7 +16,7 @@ const Products = (props: Props) => {
         }}
         justifyItems={{ base: "center", lg: "normal" }}
         py={{ base: "10px", lg: "20px" }}
-        gap="25px"
+        gap={{ base: "5px", lg: "15px" }}
       >
         {Array(10)
           .fill("")
