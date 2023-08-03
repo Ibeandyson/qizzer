@@ -13,6 +13,7 @@ import useAppRouter from "@/global/hooks/useAppRouter";
 
 function DesktopSideBar() {
   const { paramsForNavigation } = useAppRouter();
+
   return (
     <chakra.div
       pos={{ base: "fixed" }}

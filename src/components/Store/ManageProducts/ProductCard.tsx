@@ -1,9 +1,12 @@
 import React from "react";
 import { chakra } from "@chakra-ui/react";
+import { useRouter } from "next/navigation";
 
 type Props = {};
 
 const ProductCard = (props: Props) => {
+  const router = useRouter();
+
   return (
     <chakra.div
       w={{ base: "175.465px", lg: "241px" }}
@@ -37,6 +40,7 @@ const ProductCard = (props: Props) => {
         fontWeight={500}
         color="#220075"
         mx="auto"
+        onClick={() => router.push(`/dashboard/products/${1}`)}
       >
         Details
       </chakra.button>
