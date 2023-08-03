@@ -10,6 +10,8 @@ import CreateProduct from "@/components/Store/ManageProducts/CreateProduct";
 import ActionsDropDown, {
   ActionProps,
 } from "@/components/ReuseableComponents/DropDown";
+import ProductsInfo from "@/components/Store/ManageProducts/ProductsInfo";
+import Products from "@/components/Store/ManageProducts/Products";
 type Props = {};
 
 function ManageProducts({}: Props) {
@@ -62,7 +64,7 @@ function ManageProducts({}: Props) {
         <CreateProduct />
       ) : (
         <>
-          {Array(0).fill("").length < 1 ? (
+          {Array(20).fill("").length < 1 ? (
             <chakra.div
               w="full"
               h="500px"
@@ -102,7 +104,11 @@ function ManageProducts({}: Props) {
               />
             </chakra.div>
           ) : (
-            <></>
+            <>
+              <chakra.div h="1px" bg="#0000001C" />
+              <ProductsInfo />
+              <Products />
+            </>
           )}
         </>
       )}

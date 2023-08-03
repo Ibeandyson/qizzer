@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { chakra } from '@chakra-ui/react';
-import { useState } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
+import { chakra } from "@chakra-ui/react";
+import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 
 type Props = {
   Icon: ({ color }: { color: string }) => JSX.Element;
@@ -20,8 +20,16 @@ function Tab({ Icon, label, path, childPath }: Props) {
       onClick={() => router.push(path)}
       w="full"
       h="48px"
-      bg={pathname === path || active || childPath?.map((data: any) => pathname === data) ? '#E9E6F1' : '#FFF'}
-      color={pathname === path || active || childPath?.map((data: any) => pathname === data) ? '#4E3391' : '#7A7A7A'}
+      bg={
+        pathname === path || active || childPath?.includes(pathname)
+          ? "#E9E6F1"
+          : "#FFF"
+      }
+      color={
+        pathname === path || active || childPath?.includes(pathname)
+          ? "#4E3391"
+          : "#7A7A7A"
+      }
       borderRadius="4px"
       display="flex"
       alignItems="center"
@@ -31,7 +39,13 @@ function Tab({ Icon, label, path, childPath }: Props) {
       onMouseOver={() => setActive(true)}
       onMouseOut={() => setActive(false)}
     >
-      <Icon color={pathname === path || active || childPath?.map((data: any) => pathname === data) ? '#4E3391' : '#7A7A7A'} />
+      <Icon
+        color={
+          pathname === path || active || childPath?.includes(pathname)
+            ? "#4E3391"
+            : "#7A7A7A"
+        }
+      />
       <chakra.p fontSize="14px" fontWeight={500}>
         {label}
       </chakra.p>
