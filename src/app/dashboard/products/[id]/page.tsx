@@ -9,13 +9,14 @@ import ActionsDropDown, {
 } from "@/components/ReuseableComponents/DropDown";
 
 import useAppRouter from "@/global/hooks/useAppRouter";
+import ProductDetails from "@/components/Store/ManageProducts/ProductDetails";
 
 function Product({ params }: { params: { id: string } }) {
   const { setParamsForNavigation } = useAppRouter();
 
   useEffect(() => {
     setParamsForNavigation(params.id);
-  }, []);
+  }, [params]);
 
   const actions: ActionProps[] = [
     {
@@ -66,7 +67,7 @@ function Product({ params }: { params: { id: string } }) {
         </chakra.div>
         <ActionsDropDown actions={actions} />
       </chakra.div>
-      <></>
+      <ProductDetails />
     </chakra.div>
   );
 }
