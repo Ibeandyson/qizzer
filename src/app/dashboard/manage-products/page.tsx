@@ -11,6 +11,7 @@ import ActionsDropDown, {
   ActionProps,
 } from "@/components/ReuseableComponents/DropDown";
 import ProductsInfo from "@/components/Store/ManageProducts/ProductsInfo";
+import Products from "@/components/Store/ManageProducts/Products";
 type Props = {};
 
 function ManageProducts({}: Props) {
@@ -106,6 +107,7 @@ function ManageProducts({}: Props) {
             <>
               <chakra.div h="1px" bg="#0000001C" />
               <ProductsInfo />
+              <Products />
             </>
           )}
         </>
