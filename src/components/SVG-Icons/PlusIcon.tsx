@@ -1,14 +1,14 @@
 import React from "react";
-
+import { chakra } from "@chakra-ui/react";
 type Props = {
   color?: string;
 };
 
 function PlusIcon({ color }: Props) {
   return (
-    <svg
-      width="33"
-      height="33"
+    <chakra.svg
+      width={{ base: "15px", lg: "33px" }}
+      height={{ base: "15px", lg: "33px" }}
       viewBox="0 0 33 33"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +22,7 @@ function PlusIcon({ color }: Props) {
           strokeWidth="1.5"
         />
       </g>
-    </svg>
+    </chakra.svg>
   );
 }
 

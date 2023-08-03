@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import { Menu, MenuButton, MenuList, MenuItem, Button } from "@chakra-ui/react";
 import DropDownIcon from "@/components/SVG-Icons/DropDownIcon";
 
@@ -34,7 +34,7 @@ function ActionsDropDown({ actions }: Props) {
           >
             Actions
           </MenuButton>
-          <MenuList w={{ base: "110.17px", lg: "179px" }}>
+          <MenuList>
             {actions.map(({ label, onAction, color, Icon }, index) => (
               <MenuItem
                 key={index}
@@ -42,8 +42,8 @@ function ActionsDropDown({ actions }: Props) {
                 leftIcon={Icon}
                 onClick={onAction}
                 color={color ? color : "#1E1E1E"}
-                w={{ base: "110.17px", lg: "179px" }}
                 h={{ base: "24.78px", lg: "41px" }}
+                fontSize={{ base: "9.778px", lg: "16px" }}
               >
                 {label}
               </MenuItem>

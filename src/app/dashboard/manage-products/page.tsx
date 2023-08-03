@@ -18,7 +18,9 @@ function ManageProducts({}: Props) {
   const actions: ActionProps[] = [
     {
       label: "Add New Product",
-      onAction: () => {},
+      onAction: () => {
+        setShowProductsForm(true);
+      },
       Icon: <PlusIcon color="#1E1E1E" />,
     },
   ];
@@ -56,9 +58,11 @@ function ManageProducts({}: Props) {
         </chakra.div>
         <ActionsDropDown actions={actions} />
       </chakra.div>
-      {Array(20).fill("").length < 1 ? (
+      {showProductsForm ? (
+        <CreateProduct />
+      ) : (
         <>
-          {!showProductsForm ? (
+          {Array(0).fill("").length < 1 ? (
             <chakra.div
               w="full"
               h="500px"
@@ -98,11 +102,9 @@ function ManageProducts({}: Props) {
               />
             </chakra.div>
           ) : (
-            <CreateProduct />
+            <></>
           )}
         </>
-      ) : (
-        <></>
       )}
     </chakra.div>
   );
