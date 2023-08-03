@@ -6,7 +6,7 @@ export type ActionProps = {
   label: string;
   onAction: () => void;
   color?: string;
-  Icon: any;
+  Icon?: any;
 };
 
 type Props = {
@@ -44,6 +44,7 @@ function ActionsDropDown({ actions }: Props) {
                 color={color ? color : "#1E1E1E"}
                 h={{ base: "24.78px", lg: "41px" }}
                 fontSize={{ base: "9.778px", lg: "16px" }}
+                _hover={{ bg: "#E9E6F1", color: "#220075" }}
               >
                 {label}
               </MenuItem>
