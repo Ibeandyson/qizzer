@@ -1,6 +1,6 @@
 "use client";
 import { NextPage } from "next";
-import { FormEvent, ChangeEvent, useState } from "react";
+import { FormEvent, ChangeEvent, useState, useEffect } from "react";
 import {
   chakra,
   FormControl,
@@ -11,6 +11,7 @@ import {
   Image,
   Box,
   Heading,
+  useToast,
 } from "@chakra-ui/react";
 import ButtonUI from "@/components/ReuseableComponents/ButtonUI";
 import InputUI from "@/components/ReuseableComponents/InputUI";
@@ -19,8 +20,8 @@ import useAuth from "@/global/hooks/useAuth";
 import { SignUpProps } from "@/types/auth";
 
 const Signup: NextPage = () => {
-  const { loading, signUpUser } = useAuth();
-
+  const { loading, message, signUpUser }: any = useAuth();
+  // const toast = useToast();
   const [signUpData, setSignUpData] = useState<SignUpProps>({
     firstName: "",
     lastName: "",
@@ -38,6 +39,16 @@ const Signup: NextPage = () => {
     event.preventDefault();
     await signUpUser(signUpData);
   };
+
+  useEffect(() => {
+    // toast({
+    //   title: message.title,
+    //   status: message.status,
+    //   duration: 3000,
+    //   isClosable: true,
+    //   position: "top",
+    // });
+  }, [message]);
 
   return (
     <main>

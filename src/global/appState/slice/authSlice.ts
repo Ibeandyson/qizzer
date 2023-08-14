@@ -6,6 +6,7 @@ const authSlice = createSlice({
   initialState: {
     token: "",
     loading: false,
+    message: { title: "", status: "" },
   },
   reducers: {
     // Define the actions and corresponding state updates for 'twoSlice'
@@ -15,9 +16,15 @@ const authSlice = createSlice({
     setAuthLoading(state, action) {
       state.loading = action.payload;
     },
+    setAuthMessage(state, action) {
+      state.message = {
+        title: action.payload.title,
+        status: action.payload.status,
+      };
+    },
   },
 });
 
-export const { setToke, setAuthLoading } = authSlice.actions;
+export const { setToke, setAuthLoading, setAuthMessage } = authSlice.actions;
 
 export default authSlice;
