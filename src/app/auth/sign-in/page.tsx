@@ -1,21 +1,14 @@
 "use client";
-import {
-  chakra,
-  FormControl,
-  FormLabel,
-  Input,
-  Button,
-  Text,
-  Image,
-  Box,
-  Heading,
-} from "@chakra-ui/react";
+import { chakra, Text, Image, Box, Heading } from "@chakra-ui/react";
 import ButtonUI from "@/components/ReuseableComponents/ButtonUI";
 import InputUI from "@/components/ReuseableComponents/InputUI";
 import { FormEvent, useState } from "react";
 import Link from "next/link";
+import useAuth from "@/global/hooks/useAuth";
 
 function SignUPForm() {
+  const { loading } = useAuth();
+
   const [name] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -118,6 +111,7 @@ function SignUPForm() {
               width={{ base: "145px", md: "170px" }}
               height="20px"
               src="../imgs/Line1.svg"
+              alt="line"
             />
             <Text fontSize="16px" color="#7A7A7A" fontWeight="500">
               or
@@ -126,6 +120,7 @@ function SignUPForm() {
               width={{ base: "145px", md: "170px" }}
               height="20px"
               src="../imgs/Line1.svg"
+              alt="line"
             />
           </chakra.div>
           <Box display="flex" justifyContent="center" alignItems="center">
@@ -134,7 +129,7 @@ function SignUPForm() {
               flexDirection="column"
               alignItems="center"
             >
-              <Image src="../icons/facebookIcon.svg" />
+              <Image src="../icons/facebookIcon.svg" alt="icon" />
               <Text
                 fontSize="14px"
                 fontWeight="400"
@@ -152,7 +147,7 @@ function SignUPForm() {
               my="10px"
               mx="60px"
             >
-              <Image src="../icons/Google.svg" />
+              <Image src="../icons/Google.svg" alt="icon" />
               <Text
                 fontSize="14px"
                 fontWeight="400"
@@ -168,7 +163,7 @@ function SignUPForm() {
               flexDirection="column"
               alignItems="center"
             >
-              <Image src="../icons/appleLogo.svg" />
+              <Image src="../icons/appleLogo.svg" alt="icon" />
               <Text
                 fontSize="14px"
                 fontWeight="400"
