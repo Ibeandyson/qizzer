@@ -9,7 +9,25 @@ body {
   background: #fff;
 }
 
-@font-face {
+::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-button {
+  background: #e9e6f1;
+}
+
+::-webkit-scrollbar-track-piece {
+  background: #e9e6f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #220075;
+  border-radius: 8px;
+}
+
+​ @font-face {
   font-family: "Aeonik";
   font-weight: 200;
   font-style: normal;
@@ -64,3 +82,8 @@ body {
   }
 }
 
+@media (max-width: 700px) {
+  ::-webkit-scrollbar {
+    height: 3px;
+  }
+}

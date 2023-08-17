@@ -1,34 +1,26 @@
 "use client";
-import {
-  chakra,
-  FormControl,
-  FormLabel,
-  Input,
-  Button,
-  Text,
-  Image,
-  Box,
-  Heading,
-} from "@chakra-ui/react";
+import { chakra, Text, Image, Box, Heading } from "@chakra-ui/react";
 import ButtonUI from "@/components/ReuseableComponents/ButtonUI";
 import InputUI from "@/components/ReuseableComponents/InputUI";
-import { FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import Link from "next/link";
+import useAuth from "@/global/hooks/useAuth";
 
 function SignUPForm() {
-  const [name] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const { loading, signInUser } = useAuth();
+
+  const [signInData, setSignInData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSignInData({ ...signInData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    const params = {
-      name,
-      email,
-      password,
-    };
-
-    console.log(params);
+    await signInUser(signInData);
   };
 
   return (
@@ -69,23 +61,28 @@ function SignUPForm() {
             <Link href={"/auth/sign-up"}>Register here</Link>
           </span>
         </Text>
-        <InputUI
-          type="email"
-          style={{ marginBottom: "40px", marginTop: "20px" }}
-          lable="Email"
-          value=""
-          onchange={() => {}}
-          placeHolder=""
-        />
-        <InputUI
-          type="password"
-          style={{ marginBottom: "40px", marginTop: "20px" }}
-          lable="Password"
-          value=""
-          onchange={() => {}}
-          placeHolder=""
-        />
-        <ButtonUI loading={false} label="Login" onClick={() => {}} />
+        <chakra.form onSubmit={handleSubmit}>
+          <InputUI
+            type="email"
+            name="email"
+            style={{ marginBottom: "40px", marginTop: "20px" }}
+            lable="Email"
+            value={signInData.email}
+            onchange={handleInputChange}
+            placeHolder=""
+          />
+          <InputUI
+            type="password"
+            name="password"
+            style={{ marginBottom: "40px", marginTop: "20px" }}
+            lable="Password"
+            value={signInData.password}
+            onchange={handleInputChange}
+            placeHolder=""
+          />
+          <ButtonUI loading={loading} label="Login" />
+        </chakra.form>
+
         <Text
           fontSize="14px"
           fontWeight="400"
@@ -118,6 +115,7 @@ function SignUPForm() {
               width={{ base: "145px", md: "170px" }}
               height="20px"
               src="../imgs/Line1.svg"
+              alt="line"
             />
             <Text fontSize="16px" color="#7A7A7A" fontWeight="500">
               or
@@ -126,6 +124,7 @@ function SignUPForm() {
               width={{ base: "145px", md: "170px" }}
               height="20px"
               src="../imgs/Line1.svg"
+              alt="line"
             />
           </chakra.div>
           <Box display="flex" justifyContent="center" alignItems="center">
@@ -134,7 +133,7 @@ function SignUPForm() {
               flexDirection="column"
               alignItems="center"
             >
-              <Image src="../icons/facebookIcon.svg" />
+              <Image src="../icons/facebookIcon.svg" alt="icon" />
               <Text
                 fontSize="14px"
                 fontWeight="400"
@@ -152,7 +151,7 @@ function SignUPForm() {
               my="10px"
               mx="60px"
             >
-              <Image src="../icons/Google.svg" />
+              <Image src="../icons/Google.svg" alt="icon" />
               <Text
                 fontSize="14px"
                 fontWeight="400"
@@ -168,7 +167,7 @@ function SignUPForm() {
               flexDirection="column"
               alignItems="center"
             >
-              <Image src="../icons/appleLogo.svg" />
+              <Image src="../icons/appleLogo.svg" alt="icon" />
               <Text
                 fontSize="14px"
                 fontWeight="400"

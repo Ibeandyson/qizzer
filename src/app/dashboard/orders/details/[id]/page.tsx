@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import useAppRouter from '@/global/hooks/useAppRouter';
-import { useEffect } from 'react';
+import useAppRouter from "@/global/hooks/useAppRouter";
+import { useEffect } from "react";
 import {
   chakra,
   Image,
@@ -17,9 +17,9 @@ import {
   Tr,
   Td,
   Th,
-} from '@chakra-ui/react';
-import BackArrowIcon from '@/components/SVG-Icons/BackArrowIcon';
-import Link from 'next/link';
+} from "@chakra-ui/react";
+import BackArrowIcon from "@/components/SVG-Icons/BackArrowIcon";
+import Link from "next/link";
 
 export default function OrdersDetails({ params }: { params: { id: string } }) {
   const { setParamsForNavigation } = useAppRouter();
@@ -28,7 +28,13 @@ export default function OrdersDetails({ params }: { params: { id: string } }) {
     setParamsForNavigation(params.id);
   }, []);
   return (
-    <chakra.div bg="white" p={{ base: '5px', lg: '20px' }} boxShadow={{ base: 'none', md: 'base' }} width="100%" zIndex="1">
+    <chakra.div
+      bg="white"
+      p={{ base: "5px", lg: "20px" }}
+      boxShadow={{ base: "none", md: "base" }}
+      width="100%"
+      zIndex="1"
+    >
       <Flex>
         <Link href="/dashboard/orders">
           <BackArrowIcon />
@@ -54,7 +60,11 @@ export default function OrdersDetails({ params }: { params: { id: string } }) {
             <Tr>
               <Td>1</Td>
               <Td display="flex" w="250px">
-                <Image height={50} width={50} src="https://www.shutterstock.com/image-photo/set-beautiful-leather-handbags-your-260nw-77315059.jpg" />
+                <Image
+                  height={50}
+                  width={50}
+                  src="https://www.shutterstock.com/image-photo/set-beautiful-leather-handbags-your-260nw-77315059.jpg"
+                />
                 <Text noOfLines={[1, 2]} p="10px">
                   Finda bag
                 </Text>
@@ -74,20 +84,29 @@ export default function OrdersDetails({ params }: { params: { id: string } }) {
       <Divider mb="40px" mt="30px" orientation="horizontal" />
       <Box border="0.2px solid ">
         <Text align="center" mt="20px" fontWeight="600" fontSize="13px">
-          Customer's Details
+          Customer&apos;s Details
         </Text>
         <Divider mb="40px" mt="20px" orientation="horizontal" />
         <chakra.div p="20px" pl="30px">
           <Text fontWeight="600" fontSize="12px" mb="10px">
-            Customer’s Name:<span style={{ fontWeight: 400, paddingLeft: '8px' }}>C.C Adonai Boutique</span>
+            Customer’s Name:
+            <span style={{ fontWeight: 400, paddingLeft: "8px" }}>
+              C.C Adonai Boutique
+            </span>
           </Text>
           <Text fontWeight="600" fontSize="12px" mb="10px">
-            Customer’s Address:<span style={{ fontWeight: 400, paddingLeft: '8px' }}>No 15 Adelabu street off Ikeja expressway, Lagos.</span>
+            Customer’s Address:
+            <span style={{ fontWeight: 400, paddingLeft: "8px" }}>
+              No 15 Adelabu street off Ikeja expressway, Lagos.
+            </span>
           </Text>
           <Text fontWeight="600" fontSize="12px" mb="10px">
-            Customer’s Contact Number:<span style={{ fontWeight: 400, paddingLeft: '8px' }}>+234 983 890 8980</span>
+            Customer’s Contact Number:
+            <span style={{ fontWeight: 400, paddingLeft: "8px" }}>
+              +234 983 890 8980
+            </span>
           </Text>
-        </chakra.div>{' '}
+        </chakra.div>{" "}
       </Box>
       <Flex gap={2} mt="20px">
         <Box w="100%" border="0.2px solid ">
@@ -97,15 +116,18 @@ export default function OrdersDetails({ params }: { params: { id: string } }) {
           <Divider mb="40px" mt="20px" orientation="horizontal" />
           <chakra.div p="20px" pl="30px">
             <Text fontWeight="600" fontSize="12px" mb="10px">
-              Items Price:<span style={{ fontWeight: 400, paddingLeft: '8px' }}>N00</span>
+              Items Price:
+              <span style={{ fontWeight: 400, paddingLeft: "8px" }}>N00</span>
             </Text>
             <Text fontWeight="600" fontSize="12px" mb="10px">
-              Delivery Fee:<span style={{ fontWeight: 400, paddingLeft: '8px' }}>N00</span>
+              Delivery Fee:
+              <span style={{ fontWeight: 400, paddingLeft: "8px" }}>N00</span>
             </Text>
             <Text fontWeight="600" fontSize="12px" mb="10px">
-              Toatal Fee:<span style={{ fontWeight: 400, paddingLeft: '8px' }}>N00</span>
+              Toatal Fee:
+              <span style={{ fontWeight: 400, paddingLeft: "8px" }}>N00</span>
             </Text>
-          </chakra.div>{' '}
+          </chakra.div>{" "}
         </Box>
         <Box w="100%" border="0.2px solid" ml="auto">
           <Text align="center" mt="20px" fontWeight="600" fontSize="13px">
@@ -115,14 +137,21 @@ export default function OrdersDetails({ params }: { params: { id: string } }) {
           <chakra.div p="20px" pl="30px">
             <Text fontWeight="600" fontSize="12px" mb="10px">
               Delivery Address:
-              <span style={{ fontWeight: 400, paddingLeft: '8px' }}>
-                No 4 Odubanjo Street-Second Carwash Bus stop, Governor's Road, Ikotun, Lagos.
+              <span style={{ fontWeight: 400, paddingLeft: "8px" }}>
+                No 4 Odubanjo Street-Second Carwash Bus stop, Governor&apos;s
+                Road, Ikotun, Lagos.
               </span>
             </Text>
           </chakra.div>
         </Box>
       </Flex>
-      <Flex mt="30px" mb="30px" justifyContent="center" alignItems="center" gap={5}>
+      <Flex
+        mt="30px"
+        mb="30px"
+        justifyContent="center"
+        alignItems="center"
+        gap={5}
+      >
         <Button w="100%" bg="red" color="white" fontSize="12px">
           Reject Order
         </Button>

@@ -1,12 +1,13 @@
 import React from "react";
+import { chakra } from "@chakra-ui/react";
 
-type Props = { rotate: boolean };
+type Props = { rotate: boolean; color?: string };
 
-function DropDownIcon({ rotate }: Props) {
+function DropDownIcon({ rotate, color }: Props) {
   return (
-    <svg
-      width="12"
-      height="8"
+    <chakra.svg
+      width={{ base: "10px", lg: "12px" }}
+      height={{ base: "6px", lg: "8px" }}
       viewBox="0 0 12 8"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -16,9 +17,13 @@ function DropDownIcon({ rotate }: Props) {
     >
       <path
         d="M5.99981 7.59831C5.86647 7.59831 5.73747 7.57226 5.61281 7.52018C5.48747 7.4681 5.38314 7.39865 5.29981 7.31185L0.699805 2.52018C0.516471 2.32921 0.424805 2.08615 0.424805 1.79102C0.424805 1.49588 0.516471 1.25282 0.699804 1.06185C0.883138 0.870876 1.11647 0.775391 1.3998 0.77539C1.68314 0.77539 1.91647 0.870876 2.0998 1.06185L5.99981 5.12435L9.8998 1.06185C10.0831 0.870875 10.3165 0.775389 10.5998 0.775389C10.8831 0.775389 11.1165 0.870874 11.2998 1.06185C11.4831 1.25282 11.5748 1.49587 11.5748 1.79101C11.5748 2.08615 11.4831 2.32921 11.2998 2.52018L6.69981 7.31185C6.59981 7.41601 6.49147 7.48962 6.37481 7.53268C6.25814 7.57643 6.13314 7.59831 5.99981 7.59831Z"
-        fill={rotate ? "#4E3391" : "#7A7A7A"}
+        fill={
+          rotate
+            ? `${color ? color : "#4E3391"}`
+            : `${color ? color : "#7A7A7A"}`
+        }
       />
-    </svg>
+    </chakra.svg>
   );
 }
 
