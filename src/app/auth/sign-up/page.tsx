@@ -1,6 +1,6 @@
 "use client";
 import { NextPage } from "next";
-import { FormEvent, ChangeEvent, useState } from "react";
+import { FormEvent, ChangeEvent, useState, useEffect } from "react";
 import {
   chakra,
   FormControl,
@@ -11,24 +11,32 @@ import {
   Image,
   Box,
   Heading,
+  useToast,
 } from "@chakra-ui/react";
 import ButtonUI from "@/components/ReuseableComponents/ButtonUI";
 import InputUI from "@/components/ReuseableComponents/InputUI";
 import Link from "next/link";
+import useAuth from "@/global/hooks/useAuth";
+import { SignUpProps } from "@/types/auth";
 
 const Signup: NextPage = () => {
-  const [signUpData, setSignUpData] = useState({
-    name: "",
+  const { loading, signUpUser } = useAuth();
+  const [signUpData, setSignUpData] = useState<SignUpProps>({
+    firstName: "",
+    lastName: "",
     email: "",
     password: "",
+    password2: "",
+    phone: "",
   });
 
-  const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSignUpData({ ...signUpData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    await signUpUser(signUpData);
   };
 
   return (
@@ -67,59 +75,72 @@ const Signup: NextPage = () => {
                 cursor: "pointer",
               }}
             >
-              <Link href={"/auth/log-in"}>Login here</Link>
+              <Link href={"/auth/sign-in"}>Login here</Link>
             </span>
           </Text>
 
-          <InputUI
-            type="text"
-            style={{ marginBottom: "40px", marginTop: "20px" }}
-            lable="First Name"
-            value=""
-            onchange={() => {}}
-            placeHolder=""
-          />
-          <InputUI
-            type="text"
-            style={{ marginBottom: "40px", marginTop: "20px" }}
-            lable="Last Name"
-            value=""
-            onchange={() => {}}
-            placeHolder=""
-          />
-          <InputUI
-            type="email"
-            style={{ marginBottom: "40px", marginTop: "20px" }}
-            lable="Email"
-            value=""
-            onchange={() => {}}
-            placeHolder=""
-          />
-          <InputUI
-            type="number"
-            style={{ marginBottom: "40px", marginTop: "20px" }}
-            lable="Phone"
-            value=""
-            onchange={() => {}}
-            placeHolder=""
-          />
-          <InputUI
-            type="password"
-            style={{ marginBottom: "40px", marginTop: "20px" }}
-            lable="Password"
-            value=""
-            onchange={() => {}}
-            placeHolder=""
-          />
-          <InputUI
-            type="password"
-            style={{ marginBottom: "40px", marginTop: "20px" }}
-            lable="Comfirm Password"
-            value=""
-            onchange={() => {}}
-            placeHolder=""
-          />
-          <ButtonUI loading={false} label="Register" onClick={() => {}} />
+          <chakra.form onSubmit={handleSubmit}>
+            <InputUI
+              type="text"
+              name="firstName"
+              lable="First Name"
+              value={signUpData.firstName}
+              onchange={handleInputChange}
+              placeHolder=""
+              style={{ marginBottom: "40px", marginTop: "20px" }}
+            />
+            <InputUI
+              type="text"
+              name="lastName"
+              value={signUpData.lastName}
+              lable="Last Name"
+              placeHolder=""
+              onchange={handleInputChange}
+              style={{ marginBottom: "40px", marginTop: "20px" }}
+            />
+            <InputUI
+              type="email"
+              lable="Email"
+              name="email"
+              value={signUpData.email}
+              placeHolder=""
+              onchange={handleInputChange}
+              style={{ marginBottom: "40px", marginTop: "20px" }}
+            />
+            <InputUI
+              type="number"
+              lable="Phone"
+              name="phone"
+              value={signUpData.phone}
+              placeHolder=""
+              onchange={handleInputChange}
+              style={{ marginBottom: "40px", marginTop: "20px" }}
+            />
+            <InputUI
+              type="password"
+              lable="Password"
+              name="password"
+              value={signUpData.password}
+              placeHolder=""
+              onchange={handleInputChange}
+              style={{ marginBottom: "40px", marginTop: "20px" }}
+            />
+            <InputUI
+              type="password"
+              name="password2"
+              value={signUpData.password2}
+              lable="Comfirm Password"
+              placeHolder=""
+              onchange={handleInputChange}
+              style={{ marginBottom: "40px", marginTop: "20px" }}
+            />
+            <ButtonUI
+              loading={loading}
+              label="Register"
+              // onClick={handleSubmit}
+            />
+          </chakra.form>
+
           <Box width="fit">
             <chakra.div
               display="flex"
@@ -132,6 +153,7 @@ const Signup: NextPage = () => {
                 width={{ base: "145px", md: "170px" }}
                 height="20px"
                 src="../imgs/Line1.svg"
+                alt="line"
               />
               <Text fontSize="16px" color="#7A7A7A" fontWeight="500">
                 or
@@ -140,6 +162,7 @@ const Signup: NextPage = () => {
                 width={{ base: "145px", md: "170px" }}
                 height="20px"
                 src="../imgs/Line1.svg"
+                alt="line"
               />
             </chakra.div>
             <Text
@@ -157,7 +180,7 @@ const Signup: NextPage = () => {
                 flexDirection="column"
                 alignItems="center"
               >
-                <Image src="../icons/facebookIcon.svg" />
+                <Image src="../icons/facebookIcon.svg" alt="line" />
                 <Text
                   fontSize="14px"
                   fontWeight="400"
@@ -175,7 +198,7 @@ const Signup: NextPage = () => {
                 my="10px"
                 mx="60px"
               >
-                <Image src="../icons/Google.svg" />
+                <Image src="../icons/Google.svg" alt="line" />
                 <Text
                   fontSize="14px"
                   fontWeight="400"
@@ -191,7 +214,7 @@ const Signup: NextPage = () => {
                 flexDirection="column"
                 alignItems="center"
               >
-                <Image src="../icons/appleLogo.svg" />
+                <Image src="../icons/appleLogo.svg" alt="line" />
                 <Text
                   fontSize="14px"
                   fontWeight="400"
