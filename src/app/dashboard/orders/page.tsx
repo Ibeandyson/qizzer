@@ -1,6 +1,6 @@
 'use client';
-import {useState} from 'react';
-import {chakra, Box, Flex, Text, Divider, ButtonGroup, Button, TableContainer, Table, Thead, Tbody, Tr, Td, Th} from '@chakra-ui/react';
+import { useState } from 'react';
+import { chakra, Box, Flex, Text, Divider, ButtonGroup, Button, TableContainer, Table, Thead, Tbody, Tr, Td, Th } from '@chakra-ui/react';
 import OrderCard from '@/components/Dashboard/OrderCard';
 import RectangleShapeIcon from '@/components/SVG-Icons/RectangleShapeIcon';
 import FilterButton from '@/components/ReuseableComponents/FilterButton';
@@ -10,7 +10,7 @@ export default function Orders() {
   return (
     <chakra.div>
       <section>
-        <chakra.div bg="white" p={{base: '5px', lg: '20px'}} boxShadow={{base: 'none', md: 'base'}} width="100%" height="38vh" zIndex="1">
+        <chakra.div bg="white" p={{ base: '5px', lg: '20px' }} boxShadow={{ base: 'none', md: 'base' }} width="100%" height="38vh" zIndex="1">
           <Flex mb="15px">
             <Box display="flex" alignItems="center" justifyContent="center">
               <RectangleShapeIcon />
@@ -21,21 +21,23 @@ export default function Orders() {
             <Box ml="auto">
               <ButtonGroup size="sm" isAttached variant="outline">
                 <Button
-                  _hover={{backgroundColor: '#220075', color: 'white'}}
+                  _hover={{ backgroundColor: '#220075', color: 'white' }}
                   color={viewSate ? 'white' : 'black'}
                   onClick={() => setViewState(true)}
                   bg={viewSate ? '#220075' : 'transparent'}
                   fontSize="10px"
-                  width="70px">
+                  width="70px"
+                >
                   Store
                 </Button>
                 <Button
-                  _hover={{backgroundColor: '#220075', color: 'white'}}
+                  _hover={{ backgroundColor: '#220075', color: 'white' }}
                   color={!viewSate ? 'white' : 'black'}
                   onClick={() => setViewState(false)}
                   bg={!viewSate ? '#220075' : 'transparent'}
                   fontSize="10px"
-                  width="70px">
+                  width="70px"
+                >
                   Individual
                 </Button>
               </ButtonGroup>
@@ -51,12 +53,13 @@ export default function Orders() {
         </chakra.div>
         <chakra.div
           bg="white"
-          p={{base: '5px', lg: '20px'}}
-          boxShadow={{base: 'none', md: 'md'}}
+          p={{ base: '5px', lg: '20px' }}
+          boxShadow={{ base: 'none', md: 'md' }}
           width="100%"
           height="38vh"
-          mt={{base: '-50px', md: '5px'}}
-          zIndex="1">
+          mt={{ base: '-50px', md: '5px' }}
+          zIndex="1"
+        >
           <Flex mb="15px">
             <Box display="flex" alignItems="center" justifyContent="center">
               <RectangleShapeIcon />
@@ -95,7 +98,8 @@ export default function Orders() {
                       fontSize="10px"
                       height="30px"
                       borderRadius="5px"
-                      width="80px">
+                      width="80px"
+                    >
                       View Details
                     </Button>
                   </Td>
