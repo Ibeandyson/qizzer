@@ -20,8 +20,7 @@ import useAuth from "@/global/hooks/useAuth";
 import { SignUpProps } from "@/types/auth";
 
 const Signup: NextPage = () => {
-  const { loading, message, signUpUser }: any = useAuth();
-  // const toast = useToast();
+  const { loading, signUpUser } = useAuth();
   const [signUpData, setSignUpData] = useState<SignUpProps>({
     firstName: "",
     lastName: "",
@@ -39,16 +38,6 @@ const Signup: NextPage = () => {
     event.preventDefault();
     await signUpUser(signUpData);
   };
-
-  useEffect(() => {
-    // toast({
-    //   title: message.title,
-    //   status: message.status,
-    //   duration: 3000,
-    //   isClosable: true,
-    //   position: "top",
-    // });
-  }, [message]);
 
   return (
     <main>
@@ -86,7 +75,7 @@ const Signup: NextPage = () => {
                 cursor: "pointer",
               }}
             >
-              <Link href={"/auth/log-in"}>Login here</Link>
+              <Link href={"/auth/sign-in"}>Login here</Link>
             </span>
           </Text>
 

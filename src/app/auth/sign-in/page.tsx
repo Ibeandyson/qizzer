@@ -2,26 +2,25 @@
 import { chakra, Text, Image, Box, Heading } from "@chakra-ui/react";
 import ButtonUI from "@/components/ReuseableComponents/ButtonUI";
 import InputUI from "@/components/ReuseableComponents/InputUI";
-import { FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import Link from "next/link";
 import useAuth from "@/global/hooks/useAuth";
 
 function SignUPForm() {
-  const { loading } = useAuth();
+  const { loading, signInUser } = useAuth();
 
-  const [name] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const [signInData, setSignInData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSignInData({ ...signInData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    const params = {
-      name,
-      email,
-      password,
-    };
-
-    console.log(params);
+    await signInUser(signInData);
   };
 
   return (
@@ -62,23 +61,28 @@ function SignUPForm() {
             <Link href={"/auth/sign-up"}>Register here</Link>
           </span>
         </Text>
-        <InputUI
-          type="email"
-          style={{ marginBottom: "40px", marginTop: "20px" }}
-          lable="Email"
-          value=""
-          onchange={() => {}}
-          placeHolder=""
-        />
-        <InputUI
-          type="password"
-          style={{ marginBottom: "40px", marginTop: "20px" }}
-          lable="Password"
-          value=""
-          onchange={() => {}}
-          placeHolder=""
-        />
-        <ButtonUI loading={false} label="Login" onClick={() => {}} />
+        <chakra.form onSubmit={handleSubmit}>
+          <InputUI
+            type="email"
+            name="email"
+            style={{ marginBottom: "40px", marginTop: "20px" }}
+            lable="Email"
+            value={signInData.email}
+            onchange={handleInputChange}
+            placeHolder=""
+          />
+          <InputUI
+            type="password"
+            name="password"
+            style={{ marginBottom: "40px", marginTop: "20px" }}
+            lable="Password"
+            value={signInData.password}
+            onchange={handleInputChange}
+            placeHolder=""
+          />
+          <ButtonUI loading={loading} label="Login" />
+        </chakra.form>
+
         <Text
           fontSize="14px"
           fontWeight="400"

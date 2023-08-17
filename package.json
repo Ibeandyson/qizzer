@@ -27,6 +27,7 @@
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-next": "13.4.2",
     "framer-motion": "^10.12.12",
+    "js-cookie": "^3.0.5",
     "lint-staged": "^13.2.2",
     "next": "^13.4.6",
     "postcss": "8.4.23",
@@ -37,6 +38,7 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
+    "@types/js-cookie": "^3.0.3",
     "@typescript-eslint/eslint-plugin": "^5.13.0",
     "@typescript-eslint/parser": "^5.0.0",
     "husky": "^8.0.3"

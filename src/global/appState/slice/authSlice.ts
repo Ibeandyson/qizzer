@@ -1,30 +1,38 @@
 import { createSlice } from "@reduxjs/toolkit";
+import Cookies from "js-cookie";
 
 // Define the reducer logic for 'twoSlice'
 const authSlice = createSlice({
   name: "auth",
   initialState: {
-    token: "",
     loading: false,
-    message: { title: "", status: "" },
+    token: "",
+    userInfo: null,
   },
   reducers: {
     // Define the actions and corresponding state updates for 'twoSlice'
-    setToke(state, action) {
-      state.token = action.payload;
-    },
+
     setAuthLoading(state, action) {
       state.loading = action.payload;
     },
-    setAuthMessage(state, action) {
-      state.message = {
-        title: action.payload.title,
-        status: action.payload.status,
-      };
+
+    setAuthData(state, action) {
+      console.log("Authentication", action.payload);
+
+      state.token = action.payload.token;
+      state.userInfo = action.payload.userInfo;
+      localStorage.setItem("token", action.payload.payload.token);
+      localStorage.setItem(
+        "userInfo",
+        JSON.stringify(action.payload.payload.userInfo)
+      );
+
+      Cookies.set("token", action.payload.payload.token);
+      Cookies.set("userInfo", JSON.stringify(action.payload.payload.userInfo));
     },
   },
 });
 
-export const { setToke, setAuthLoading, setAuthMessage } = authSlice.actions;
+export const { setAuthLoading, setAuthData } = authSlice.actions;
 
 export default authSlice;
