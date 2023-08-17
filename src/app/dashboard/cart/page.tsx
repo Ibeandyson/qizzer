@@ -3,7 +3,6 @@ import { chakra, Stepper, Step, StepIndicator, StepStatus, Box, Button, useSteps
 import { CartList, DeliveryInfoForm } from '@/components/Cart';
 import ButtonUI from '@/components/ReuseableComponents/ButtonUI';
 
-
 const steps = [
   { title: 'Products In Cart', id: 1 },
   { title: 'Delivery Details', id: 2 },
@@ -30,8 +29,8 @@ export default function Cart({ params }: { params: { id: string } }) {
           ))}
         </Stepper>
         <Flex justifyContent="space-between">
-          {steps.map((data) => (
-            <Text mt="15px" fontSize="10px" fontWeight="600">
+          {steps.map((data, index) => (
+            <Text key={index} mt="15px" fontSize="10px" fontWeight="600">
               {data.title}
             </Text>
           ))}

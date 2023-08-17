@@ -18,8 +18,8 @@ const CartList = () => {
             </Tr>
           </Thead>
           <Tbody minH={30} fontSize="12px">
-            {[2, 2, 2, 2, 2, 4, , 4, 4, 4, 4].map(() => (
-              <Tr>
+            {[2, 2, 2, 2, 2, 4, , 4, 4, 4, 4].map((index) => (
+              <Tr key={index}>
                 <Td display="flex" w="200px">
                   <Image
                     height={50}
