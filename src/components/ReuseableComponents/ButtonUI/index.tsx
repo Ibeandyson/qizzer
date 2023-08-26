@@ -4,13 +4,13 @@ import { Button } from "@chakra-ui/react";
 type Props = {
   label: string;
   loading?: boolean;
-  onClick?: () => void;
+  onClick?: (e?:any) => void | any;
   leftIcon?: ReactElement;
   rightIcon?: ReactElement;
   w?: string;
 };
 
-function ButtonUI({ label, loading, leftIcon, rightIcon, w }: Props) {
+function ButtonUI({ label, loading, leftIcon, rightIcon, w , onClick}: Props) {
   return (
     <Button
       type={"submit"}
@@ -20,7 +20,7 @@ function ButtonUI({ label, loading, leftIcon, rightIcon, w }: Props) {
       leftIcon={leftIcon}
       rightIcon={rightIcon}
       disabled={loading}
-      // onClick={onClick}
+      onClick={onClick}
       w={"full"}
       maxW={{ base: w ? w : "full" }}
       h={{ base: "40px", lg: "51px" }}
