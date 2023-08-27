@@ -6,6 +6,7 @@ import { SIGNIN_USER, SIGNUP_USER } from "../constant/apiRoutes";
 import { getErrorMessage } from "../utils/helper";
 import { useToast } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
+import { setSecureLocalStorage, getSecureLocalStorage } from "../utils/secureLocalStorage";
 
 const useAuth = () => {
   const { loading } = useSelector((state: RootState) => state.auth);
@@ -16,7 +17,6 @@ const useAuth = () => {
   // REGISTER USER
   const signUpUser = async (data: any) => {
     dispatch(setAuthLoading(true));
-
     try {
       const res = await apiCall("POST", SIGNUP_USER, data);
       if (res.status === 201) {
@@ -50,9 +50,11 @@ const useAuth = () => {
       const res = await apiCall("POST", SIGNIN_USER, data);
       if (res.status === 200) {
         console.log("Response", res);
-        router.push("/dashboard/overview");
         dispatch(setAuthLoading(false));
+        setSecureLocalStorage("token", res.data.payload.token)
+        setSecureLocalStorage("userInfo", JSON.stringify(res.data.payload.userInfo))
         dispatch(setAuthData(res.data));
+        router.push("/dashboard/overview");
         toast({
           title: res.data.message,
           status: "success",
@@ -60,7 +62,7 @@ const useAuth = () => {
           isClosable: true,
           position: "top",
         });
-        
+
       }
     } catch (error: any) {
       toast({

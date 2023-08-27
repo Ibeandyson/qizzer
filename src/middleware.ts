@@ -9,6 +9,7 @@ const protectedRoutes = ["/dashboard/overview"];
 
 export function middleware(request: NextRequest) {
   let token = request.cookies.has("token");
+  console.log("token",token)
 
   //    AUTHENTICATED USER
   if (authRoutes.includes(request.nextUrl.pathname) && token) {

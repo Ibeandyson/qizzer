@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import Cookies from "js-cookie";
-
+import { setSecureCookieStorage } from "@/global/utils/secureCoookie";
 // Define the reducer logic for 'twoSlice'
 const authSlice = createSlice({
   name: "auth",
@@ -21,14 +21,7 @@ const authSlice = createSlice({
 
       state.token = action.payload.token;
       state.userInfo = action.payload.userInfo;
-      localStorage.setItem("token", action.payload.payload.token);
-      localStorage.setItem(
-        "userInfo",
-        JSON.stringify(action.payload.payload.userInfo)
-      );
-
-      Cookies.set("token", action.payload.payload.token);
-      Cookies.set("userInfo", JSON.stringify(action.payload.payload.userInfo));
+      setSecureCookieStorage("token", action.payload.payload.token)
     },
   },
 });

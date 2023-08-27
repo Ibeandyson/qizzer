@@ -3,12 +3,14 @@ import authSlice from "./slice/authSlice";
 import userSlice from "./slice/userSlice";
 import uiSlice from "./slice/uiSlice";
 import appRouterSlice from "./slice/appRouterSlice";
+import storeSlice from "./slice/storeSlice";
 
 // Combine the reducers into a single root reducer
 const rootReducer = combineReducers({
   auth: authSlice.reducer,
   user: userSlice.reducer,
   ui: uiSlice.reducer,
+  store: storeSlice.reducer,
   appRouter: appRouterSlice.reducer,
 });
 
