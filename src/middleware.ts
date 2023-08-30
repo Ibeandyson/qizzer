@@ -5,10 +5,11 @@ import type { NextRequest } from "next/server";
 const authRoutes = ["/auth/sign-in", "/auth/sign-up"];
 
 // Protected Routes
-const protectedRoutes = ["/dashboard/overview"];
+const protectedRoutes = ["/dashboard/overview", "/dashboard/manage-store"];
 
 export function middleware(request: NextRequest) {
   let token = request.cookies.has("token");
+  console.log("token",token)
 
   //    AUTHENTICATED USER
   if (authRoutes.includes(request.nextUrl.pathname) && token) {

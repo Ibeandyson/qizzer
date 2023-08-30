@@ -1,37 +1,53 @@
 'use client';
 
-import {Box, chakra, Heading, Text, Image, Grid, GridItem, Flex} from '@chakra-ui/react';
-import {ReactNode} from 'react';
+import { Box, chakra, Heading, Text, Image, Grid, GridItem, Flex } from '@chakra-ui/react';
+import { ReactNode } from 'react';
 
 type Props = {
   children: ReactNode;
 };
 
-function AuthLayout({children}: Props) {
+function AuthLayout({ children }: Props) {
   return (
     <chakra.main bg="#fff">
-      <Image src="/imgs/half-circle.svg" alt="icon" pos="absolute" top={{base: '-30px', lg: '0'}} left={{base: '-30px', lg: '0'}} />
       <Grid templateColumns={['1fr', '1fr', 'repeat(2, 1fr)']}>
         <GridItem w="100%">
+          <Image
+            position="absolute"
+            src="/imgs/half-circle.svg"
+            alt="icon"
+            pos="absolute"
+            top={{ base: '-30px', lg: '0' }}
+            left={{ base: '-30px', lg: '0' }}
+          />
           <Flex
             bg="#FFFBF5"
             position="sticky"
             top={0}
             left={0}
             minHeight="100vh"
-            display={{base: 'none', md: 'none', lg: 'block'}}
+            display={{ base: 'none', md: 'none', lg: 'block' }}
             maxW="720px"
             py="7rem"
             px="7rem"
             justifyContent="center"
-            alignItems="center">
+            alignItems="center"
+          >
             <chakra.div
               style={{
                 height: '100%',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-              }}>
+              }}
+            >
+              <Image
+                src="/imgs/half-circle.svg"
+                alt="icon"
+                pos="absolute"
+                top={{ base: '-30px', lg: '0' }}
+                left={{ base: '-30px', lg: '0' }}
+              />
               <Heading as="h1" fontSize="32px" fontWeight="500" mb={4}>
                 TrustPaddi
               </Heading>
@@ -59,7 +75,7 @@ function AuthLayout({children}: Props) {
           </Flex>
         </GridItem>
         <GridItem w="100%">
-          <Box py="7rem" justifyContent="center" alignItems="center"  maxW="100%"  bg={{base: '#FFFBF5', lg: '#FFF'}}>
+          <Box py="7rem" justifyContent="center" alignItems="center" maxW="100%" bg={{ base: '#FFFBF5', lg: '#FFF' }}>
             {children}
           </Box>
         </GridItem>
