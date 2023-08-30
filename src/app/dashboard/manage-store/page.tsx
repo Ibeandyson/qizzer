@@ -32,7 +32,7 @@ function ManageStore({}: Props) {
       bg="#fff"
       boxShadow="4px 0px 16px 0px rgba(0, 0, 0, 0.08)"
       borderRadius="4px"
-      px={{ lg: "20px" }}
+      px={{ lg: "20px", base: '20px' }}
       pb="40px"
     >
       <chakra.div
