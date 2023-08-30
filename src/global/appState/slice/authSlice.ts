@@ -18,7 +18,6 @@ const authSlice = createSlice({
 
     setAuthData(state, action) {
       console.log("Authentication", action.payload);
-
       state.token = action.payload.token;
       state.userInfo = action.payload.userInfo;
       setSecureCookieStorage("token", action.payload.payload.token)

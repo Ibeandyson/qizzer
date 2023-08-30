@@ -10,6 +10,7 @@ import { CREATE_STORE } from "../constant/apiRoutes";
 const useStore = () => {
 	const toast = useToast();
 	const dispatch = useDispatch();
+	const { loading } = useSelector((state: RootState) => state.store);
 
 	// create store
 	const createStore = async (data: createStoreType) => {
@@ -51,7 +52,8 @@ const useStore = () => {
 
 	
 	return {
-		createStore
+		createStore,
+		storeLoading: loading 
 	}
 }
 

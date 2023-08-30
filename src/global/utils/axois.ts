@@ -3,6 +3,7 @@ import type { Method, AxiosResponse } from "axios";
 import { getSecureLocalStorage } from "./secureLocalStorage";
 
 const token = getSecureLocalStorage('token')
+console.log("axios token", token)
 
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
 axios.defaults.headers.post["Content-Type"] = "application/json";

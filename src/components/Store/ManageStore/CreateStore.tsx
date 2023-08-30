@@ -9,7 +9,7 @@ import useStore from '@/global/hooks/useStore';
 type Props = {};
 
 function CreateStore({}: Props) {
-  const { createStore } = useStore();
+  const { createStore, storeLoading } = useStore();
   const [createStoreData, setCreateStoreData] = useState<createStoreType>({
     storeName: '',
     phone: '',
@@ -17,7 +17,7 @@ function CreateStore({}: Props) {
     state: '',
     city: '',
     zip: '',
-    logo: '',
+    logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXqZ0refadpWOUZN5pTxTH-Ti1y-pOZvdwkzXLHfY2wIMXEh-LmlxnyRH45rULx70C0lw&usqp=CAU',
   });
 
   const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
@@ -53,7 +53,7 @@ function CreateStore({}: Props) {
         <InputUI value={createStoreData.phone} type="text" lable="Account manager phone number *" name="phone" onchange={(e) => onChangeInput(e)} />
       </chakra.div>
       <chakra.div display="flex" justifyContent="center" my="30px">
-        <ButtonUI label="Create Store" w="430px" onClick={onSubmit} />
+        <ButtonUI loading={storeLoading} label="Create Store" w="430px" onClick={onSubmit} />
       </chakra.div>
     </chakra.div>
   );
