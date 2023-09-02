@@ -1,3 +1,2 @@
-export const SIGNIN_USER = "/auth/signin_user";
-export const SIGNUP_USER = "/auth/signup_user";
-export const CREATE_STORE = "/commerce/vendor/create_Store"
+export const  GET_CATEGORY = 'https://opentdb.com/api_category.php'
+export const GET_QUESTION = 'https://opentdb.com/api.php'

@@ -1,17 +1,11 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import authSlice from "./slice/authSlice";
-import userSlice from "./slice/userSlice";
-import uiSlice from "./slice/uiSlice";
-import appRouterSlice from "./slice/appRouterSlice";
-import storeSlice from "./slice/storeSlice";
+import categorySlice from "./slice/categorySlice";
+import questionSlice from "./slice/questionSlice";
 
 // Combine the reducers into a single root reducer
 const rootReducer = combineReducers({
-  auth: authSlice.reducer,
-  user: userSlice.reducer,
-  ui: uiSlice.reducer,
-  store: storeSlice.reducer,
-  appRouter: appRouterSlice.reducer,
+  category: categorySlice.reducer,
+  questions: questionSlice.reducer,
 });
 
 // Configure the store with the root reducer
