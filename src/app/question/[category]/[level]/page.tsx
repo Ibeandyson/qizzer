@@ -18,11 +18,12 @@ export default function Question({ params }: { params: { category: number; level
   }, []);
 
   useEffect(() => {
-    if (questionData[questionIndex]?.incorrect_answers?.length > 1) {
+    if (questionData[questionIndex]?.incorrect_answers?.length >= 1) {
       const ans: any = [];
       ans?.push(...questionData[questionIndex]?.incorrect_answers);
       const randomIndex = Math.floor(Math.random() * (ans?.length + 1));
       ans?.splice(randomIndex, 0, questionData[questionIndex]?.correct_answer);
+      console.log('=>', ans);
       setAnsOptions(ans);
     }
   }, [questionData, questionIndex]);
@@ -31,6 +32,7 @@ export default function Question({ params }: { params: { category: number; level
     if (questionIndex !== 9) {
       setQuestionIndex(questionIndex + 1);
       saveAns(ans, questionIndex);
+      setAns('');
     } else {
       saveAns(ans, questionIndex);
       router.replace('/resualt');
@@ -49,10 +51,8 @@ export default function Question({ params }: { params: { category: number; level
                 {`${questionIndex + 1}: ${questionData[questionIndex]?.question}`}
               </chakra.p>
               <chakra.div mt="30px">
-                {ans}
-
                 {ansOptions.map((data: any, index: number) => (
-                  <div style={{ marginBottom: '15px' }}>
+                  <div key={index} style={{ marginBottom: '15px' }}>
                     <input
                       style={{ height: '17px', width: '17px' }}
                       type="radio"
@@ -63,9 +63,15 @@ export default function Question({ params }: { params: { category: number; level
                     <label style={{ paddingLeft: '10px', fontSize: '17px' }}>{data}</label>
                   </div>
                 ))}
-
                 <chakra.div mt="50px">
-                  <ButtonUI loading={questionLoading} onClick={onNext} label="Next" w="auto" />
+                  <ButtonUI
+                    loadingText={'choose an answer'}
+                    disabled={ans.length > 1 ? false : true}
+                    loading={ans.length > 1 ? false : true}
+                    onClick={onNext}
+                    label={questionIndex == 9 ? 'Submit' : 'Next'}
+                    w="auto"
+                  />
                 </chakra.div>
               </chakra.div>
             </chakra.div>

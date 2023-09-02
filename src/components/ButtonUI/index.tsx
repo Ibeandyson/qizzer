@@ -3,21 +3,23 @@ import { Button } from '@chakra-ui/react';
 
 interface IProps {
   label: string;
-  disabled?: boolean,
+  disabled?: boolean;
   loading?: boolean;
   onClick?: (e?: any) => void | any;
   leftIcon?: ReactElement;
   rightIcon?: ReactElement;
   w?: string;
+  loadingText?: string
 }
 
-const ButtonUI = ({ label, loading, leftIcon, rightIcon, w, onClick , disabled}: IProps) => {
+const ButtonUI = ({ label, loading, leftIcon, rightIcon, w, onClick, disabled , loadingText}: IProps) => {
   return (
     <Button
       type={'submit'}
       isLoading={loading}
-      loadingText="Please Wait"
+      loadingText={loadingText}
       spinnerPlacement="start"
+      spinner={<></>}
       leftIcon={leftIcon}
       rightIcon={rightIcon}
       disabled={disabled}
