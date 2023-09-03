@@ -5,7 +5,7 @@ import ButtonUI from '@/components/ButtonUI';
 import { chakra, Center, Spinner } from '@chakra-ui/react';
 import useQuestion from '@/global/hooks/useQuestion';
 
-export default function Question({ params }: { params: { category: number; level: string } }) {
+export default function Question({ params }: { params: { category: number, level: string } }) {
   const router = useRouter();
   const { getQuestion, saveAns, questionData, questionLoading } = useQuestion();
   const [ansOptions, setAnsOptions] = useState([]);
@@ -17,7 +17,7 @@ export default function Question({ params }: { params: { category: number; level
     localStorage.setItem('ansCount', JSON.stringify(0));
   }, []);
 
-  useEffect(() => {
+   const mergingCorrectAnIncorrectAnsIntoOneArr = () => {
     if (questionData[questionIndex]?.incorrect_answers?.length >= 1) {
       const ans: any = [];
       ans?.push(...questionData[questionIndex]?.incorrect_answers);
@@ -26,6 +26,10 @@ export default function Question({ params }: { params: { category: number; level
       console.log('=>', ans);
       setAnsOptions(ans);
     }
+  };
+
+  useEffect(() => {
+    mergingCorrectAnIncorrectAnsIntoOneArr();
   }, [questionData, questionIndex]);
 
   const onNext = () => {
@@ -66,8 +70,8 @@ export default function Question({ params }: { params: { category: number; level
                 <chakra.div mt="50px">
                   <ButtonUI
                     loadingText={'choose an answer'}
-                    disabled={ans.length > 1 ? false : true}
-                    loading={ans.length > 1 ? false : true}
+                    disabled={ans.length > 0 ? false : true}
+                    loading={ans.length > 0 ? false : true}
                     onClick={onNext}
                     label={questionIndex == 9 ? 'Submit' : 'Next'}
                     w="auto"
