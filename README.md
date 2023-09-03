@@ -1,10 +1,12 @@
 ## Tech Stack Used
 
-### `Next Js (13.4)`
+### `Next Js (13.4)` as frontend framework
 
-### `TypeScript`
+### `TypeScript` as programming languge 
 
-### `Chakra UI`
+### `Chakra UI` for CSS styling
+
+### `Redux Toolkit` for global state management 
 
 ### `Yarn (Package Manager)`
 
@@ -15,7 +17,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 First, Install the packages:
 
 ```bash
-yarn
+yarn install
 ```
 
 Second, run the development server:
@@ -35,13 +37,13 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Repo Management
+## Code Structure
 
-- Pull and Create a new branch from `dev` for the new `feature` you are working on.
-- Use `snake_case` for the Naming of the branch as follows `<Page Name>_<Feature Name>_<Any other Info you think might help>`. Example: `dashbaord_navbar`
-- State on the commit comment the Status of the Task Example `Update: Nav Bar`, or `New: Nav Bar` or `Fix: Error on Nav Bar`
-- Push on the branch you created and make a PR to dev
-- The branch will be deleted after being Reviewd and Merged
-- If you have pending task you to push on a branch, state it on the PR comment so i wont delete the branch
+- `src/app` is a folder where all pages of the application stay.
+- `src/components` is a folder where all the components files that are used stay.
+- `src/global/appSatate/store` is a file where the state store of the app stay.
+- `src/global/appSatate/slice` is a folder where all the state slice files stay.
+- `src/global/hooks` is a folder where all the custom hooks files of the app stay.
+- `src/global/utlis` is a folder where all helper functions files that are used across the app stay.
+- `src/global/constant` is a folder where all constant global variables files stay.
 
-### Note : ` Make a Pull Request to dev only`
