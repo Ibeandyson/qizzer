@@ -2,7 +2,6 @@ import { useSelector, useDispatch } from "react-redux";
 import apiCall from "../utils/axois";
 import { RootState } from "../appState/store";
 import { setCategoryData, setCategoryLoading } from "../appState/slice/categorySlice";
-import { getErrorMessage } from "../utils/helper";
 import { useToast } from "@chakra-ui/react";
 import { GET_CATEGORY } from "../constant/apiRoutes";
 
@@ -30,7 +29,7 @@ const useCategory = () => {
 			dispatch(setCategoryLoading(false));
 			console.log(error);
 			toast({
-				title: getErrorMessage(error),
+				title: "An error occured try again",
 				status: "error",
 				duration: 5000,
 				isClosable: true,

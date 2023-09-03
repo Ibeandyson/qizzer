@@ -2,7 +2,6 @@ import { useSelector, useDispatch } from "react-redux";
 import apiCall from "../utils/axois";
 import { RootState } from "../appState/store";
 import { setQuestionData, setQuestionLoading } from "../appState/slice/questionSlice";
-import { getErrorMessage } from "../utils/helper";
 import { useToast } from "@chakra-ui/react";
 import { GET_QUESTION } from "../constant/apiRoutes";
 
@@ -31,7 +30,7 @@ const useQuestion = () => {
 			dispatch(setQuestionLoading(false));
 			console.log(error);
 			toast({
-				title: getErrorMessage(error),
+				title: "An error occured try again",
 				status: "error",
 				duration: 5000,
 				isClosable: true,

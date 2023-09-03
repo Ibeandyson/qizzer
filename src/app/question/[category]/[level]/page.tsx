@@ -5,7 +5,7 @@ import ButtonUI from '@/components/ButtonUI';
 import { chakra, Center, Spinner } from '@chakra-ui/react';
 import useQuestion from '@/global/hooks/useQuestion';
 
-export default function Question({ params }: { params: { category: number, level: string } }) {
+export default function Question({ params }: { params: { category: number; level: string } }) {
   const router = useRouter();
   const { getQuestion, saveAns, questionData, questionLoading } = useQuestion();
   const [ansOptions, setAnsOptions] = useState([]);
@@ -17,7 +17,7 @@ export default function Question({ params }: { params: { category: number, level
     localStorage.setItem('ansCount', JSON.stringify(0));
   }, []);
 
-   const mergingCorrectAnIncorrectAnsIntoOneArr = () => {
+  const mergingCorrectAnIncorrectAnsIntoOneArr = () => {
     if (questionData[questionIndex]?.incorrect_answers?.length >= 1) {
       const ans: any = [];
       ans?.push(...questionData[questionIndex]?.incorrect_answers);
@@ -49,6 +49,14 @@ export default function Question({ params }: { params: { category: number, level
         <Spinner color="220075" size="lg" />
       ) : (
         <chakra.main>
+          {questionData.length < 1 && (
+            <chakra.div>
+              <chakra.p mb="20px" textAlign="center" width={{ base: '320px', md: '550px' }} fontSize="15px">
+                No Question for the selected category and level
+              </chakra.p>
+              <ButtonUI onClick={() => router.push('/select-category')} label="Choose Category" w="auto" />
+            </chakra.div>
+          )}
           {questionData.length >= 1 && (
             <chakra.div>
               <chakra.p width={{ base: '320px', md: '550px' }} fontSize="30px">

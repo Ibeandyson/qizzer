@@ -17,7 +17,7 @@ export default function Home() {
               </chakra.h1>
             </chakra.div>
           </AnimatedDiv>
-          <ButtonUI onClick={() => router.push('/select-category')} label="Play Now" w="auto" />
+          <ButtonUI onClick={() => router.push('/select-category')} label="Start Now" w="auto" />
         </chakra.div>
       </Center>
     </chakra.main>
